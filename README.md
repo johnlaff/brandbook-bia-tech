@@ -1,8 +1,8 @@
+![Brandbook BIA Tech: a raposa BIA Tech acenando ao lado do título e do wordmark b.ia tech](.github/readme-banner.webp)
+
 # Brandbook BIA Tech
 
 Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech** (Bradesco Inteligência Artificial). Aqui está tudo o que o time precisa para usar a personagem do jeito certo: regras, lockups, avatares, fundos do Teams, papéis de parede, stickers e as artes-base para gerar peças novas.
-
-![Capa do brandbook: BIA Tech acenando ao lado do wordmark b.ia tech](brandbook-html/img/cover-hero.webp)
 
 `Versão 2.0` · `06/11/2026` · `Uso interno`
 
