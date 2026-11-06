@@ -50,21 +50,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav a:hover,.nav a:focus-visible{color:var(--t-d)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 /* capa */
-.cover{position:relative;overflow:hidden;padding-block:72px 0}
-.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 78% 62%,rgba(204,9,47,.32),transparent 70%);pointer-events:none}
-.cover .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:end}
-.cover-tx{display:grid;gap:26px;padding-bottom:96px;min-width:0}
-.cover-tx .wm{width:min(420px,80%)}
-.cover h1{font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-.035em}
+.cover{position:relative;overflow:hidden;background:#0A0A0A;min-height:min(92vh,860px);display:flex;align-items:center}
+.cover-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0A0A0A 0%,rgba(10,10,10,.85) 30%,rgba(10,10,10,0) 60%);pointer-events:none}
+.cover .wrap{position:relative;z-index:1;width:100%}
+.cover-tx{display:grid;gap:22px;max-width:560px;padding-block:96px}
+.cover h1{font-size:clamp(40px,6vw,80px);line-height:.98;letter-spacing:-.04em}
 .cover h1 span{color:var(--red)}
-.term{font:13px/1.9 var(--f-mono);color:var(--t-d2)}
-.term b{color:var(--ok);font-weight:400}
-.term i{font-style:normal;color:var(--red)}
-.cursor{display:inline-block;width:.6em;height:1.1em;vertical-align:-3px;background:var(--red);animation:blink 1.1s steps(1) infinite}
-@keyframes blink{50%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
-.cover-img{align-self:end;justify-self:center}
-.cover-img img{height:min(640px,70vw);width:auto}
+@media (max-width:760px){.cover{display:block;min-height:0}.cover-bg{position:relative;height:auto;aspect-ratio:16/9;object-position:80% 50%}.cover::after{background:linear-gradient(180deg,transparent 30%,#0A0A0A 56.25vw)}.cover-tx{padding-block:8px 56px}}
 .meta{display:flex;flex-wrap:wrap;gap:8px 28px;font:12px var(--f-mono);color:var(--t-d3)}
 /* layouts */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -84,10 +77,10 @@ th{font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;col
 .arch{display:grid;gap:12px}
 .tier{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;padding:22px 26px;border:1px solid var(--line-d);background:var(--ink-2)}
 .tier>*{min-width:0}
-.tier .logo{height:56px;display:flex;align-items:center}
+.tier .logo{height:96px;display:flex;align-items:center;justify-content:center}
 .tier .logo img{max-height:44px;width:auto}
 .tier.mascot{border-color:var(--red)}
-.tier .logo.fox img{max-height:84px}
+.tier .logo.fox img{max-height:96px;width:96px;height:96px}
 .tier h3{font-size:18px;margin-bottom:4px}
 /* anatomia */
 .anat{position:relative;background:#E9E8EA;max-width:560px}
@@ -148,7 +141,7 @@ figcaption{font-size:13px;color:var(--t-l2)}
 .cs .x{position:absolute;font:700 13px var(--f-mono);color:var(--red)}
 .mins{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .min{padding:18px;border:1px solid var(--line-d);background:var(--ink-2);display:grid;gap:10px;align-content:start}
-.min .demo{height:72px;display:flex;align-items:flex-end;gap:8px}
+.min .demo{height:112px;display:flex;align-items:center;gap:12px;overflow:hidden}
 .min strong{font-size:22px;letter-spacing:-.02em}
 /* avatares */
 .av{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:end}
@@ -161,7 +154,7 @@ figcaption{font-size:13px;color:var(--t-l2)}
 .gal figure.s2{grid-column:span 2}
 .gal figure.tall{grid-column:span 1}
 .gal img{width:100%;border:1px solid var(--line-d)}
-.stk{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;background:#2B2B33;padding:16px}
+.stk{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;background:#2B2B33;padding:24px}
 /* voz */
 .say{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .say>div{padding:22px;border:1px solid var(--line-l);background:var(--white);display:grid;gap:12px;align-content:start}
@@ -209,7 +202,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
   .av{grid-template-columns:repeat(3,1fr)}
   .dd{grid-template-columns:repeat(2,1fr)}
   .steps{grid-template-columns:1fr 1fr}
-  .stk{grid-template-columns:repeat(5,1fr)}
+  .stk{grid-template-columns:repeat(3,1fr)}
   .gal figure,.gal figure.s2{grid-column:span 6}
   .gal figure.tall{grid-column:span 3}
 }
@@ -249,21 +242,15 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 </nav>
 
 <!-- CAPA -->
-<header class="dark grid cover">
+<header class="dark cover">
+  <img class="cover-bg" src="img/cover-hero.webp" alt="BIA Tech acenando dentro de um anel de luz vermelha, sobre piso preto espelhado" width="2400" height="1350">
   <div class="wrap">
     <div class="cover-tx">
       <span class="lab">Brand Identity · Mascote · 2026</span>
-      <img class="wm" src="img/biatech-negativo.svg" alt="b.ia tech">
       <h1>Brandbook do mascote <span>BIA&nbsp;Tech</span></h1>
       <p class="lead">Como desenhar, aplicar e dar voz à BIA Tech, a raposa assistente da b.ia tech, sem que ela perca a forma em nenhuma peça.</p>
-      <div class="term" aria-hidden="true">
-        <div><b>[ OK ]</b> <i>character</i> bia-tech v2 · 2 arms · 2 brown eyes</div>
-        <div><b>[ OK ]</b> <i>brand</i> b.ia tech · Bradesco Inteligência Artificial</div>
-        <div><span style="color:#fff">[ ··· ]</span> Olá! Sou a BIA Tech, sua assistente inteligente<span class="cursor"></span></div>
-      </div>
-      <div class="meta"><span>Versão 1.0</span><span>06.11.2026</span><span>Segue o Manual de Identidade b.ia tech 2026</span></div>
+      <div class="meta"><span>Versão 2.0</span><span>06.11.2026</span><span>Segue o Manual de Identidade b.ia tech 2026</span></div>
     </div>
-    <div class="cover-img"><img src="img/bia-apresentando.webp" alt="BIA Tech em pé, com a mão estendida apresentando a marca" width="560" height="958"></div>
   </div>
 </header>
 
@@ -299,7 +286,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
     <div class="arch">
       <div class="tier"><div class="logo"><img src="img/bradesco-branco.webp" alt="Bradesco"></div><div><h3>Bradesco · marca-mãe</h3><p class="muted small">Vermelho #CC092F sempre com branco, fonte Bradesco Sans, área de proteção 2X. Aparece como endosso em peças institucionais (topo-esquerdo ou base-direita), seguindo o brandbook Bradesco.</p></div></div>
       <div class="tier"><div class="logo"><img src="img/biatech-negativo.svg" alt="b.ia tech"></div><div><h3>b.ia tech · marca do produto</h3><p class="muted small">Wordmark de tipografia exclusiva, ponto circular vermelho e barra no "t". Descritor "Bradesco Inteligência Artificial". Regras no Manual de Identidade b.ia tech.</p></div></div>
-      <div class="tier mascot"><div class="logo fox"><img src="img/bia-busto.webp" alt="Busto da BIA Tech"></div><div><h3>BIA Tech · mascote e embaixadora</h3><p class="muted small">Personagem 3D que fala com as pessoas, explica, comemora e orienta. Usada em comunicação interna, onboarding, eventos, produto e redes. Sempre acompanhada do wordmark quando a peça precisa ser identificada.</p></div></div>
+      <div class="tier mascot"><div class="logo fox"><img src="img/p-avatar-circular-vermelho.webp" alt="Rosto da BIA Tech no avatar vermelho"></div><div><h3>BIA Tech · mascote e embaixadora</h3><p class="muted small">Personagem 3D que fala com as pessoas, explica, comemora e orienta. Usada em comunicação interna, onboarding, eventos, produto e redes. Sempre acompanhada do wordmark quando a peça precisa ser identificada.</p></div></div>
     </div>
   </div>
 </section>
@@ -476,7 +463,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 <section id="lockups" class="dark grid">
   <div class="wrap">
     <div class="sec-h"><span class="lab">09 — Lockups</span><h2>BIA Tech com o wordmark</h2>
-      <p class="lead">O lockup é a única forma aprovada de juntar a personagem e a marca numa assinatura. No horizontal, a BIA fica à direita e apresenta o wordmark com a mão. No vertical, o busto fica acima. Não monte combinações novas.</p></div>
+      <p class="lead">O lockup é a única forma aprovada de juntar a personagem e a marca numa assinatura. Cada lockup tem arte própria: no horizontal, a BIA fica à direita, virada para o wordmark, e o apresenta com a palma da mão; no vertical, ela se debruça sobre o wordmark, com os antebraços apoiados nas letras. Não monte combinações novas com outras poses.</p></div>
     <div class="lk">
       <figure><img class="chk" src="img/p-lockup-horizontal-positivo.webp" alt="Lockup horizontal positivo" loading="lazy"><figcaption>Horizontal · positivo · PNG transparente</figcaption></figure>
       <figure><img src="img/p-lockup-horizontal-negativo.webp" alt="Lockup horizontal negativo" loading="lazy"><figcaption>Horizontal · negativo · fundo #0A0A0A</figcaption></figure>
@@ -503,9 +490,9 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
     <h3 class="sub-h">Tamanhos mínimos</h3>
     <div class="mins">
       <div class="min"><span class="k">Lockup horizontal</span><div class="demo"><img src="img/p-lockup-horizontal-negativo.webp" alt="" style="width:180px;height:auto"></div><strong>180 px · 45 mm</strong><span class="muted small">de largura</span></div>
-      <div class="min"><span class="k">BIA corpo inteiro</span><div class="demo"><img src="img/bia-acenando.webp" alt="" style="height:96px;width:auto;margin-bottom:-24px"></div><strong>96 px · 25 mm</strong><span class="muted small">de altura. Abaixo disso, os óculos e o emblema somem.</span></div>
-      <div class="min"><span class="k">Busto / avatar</span><div class="demo"><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:32px;height:32px"></div><strong>32 px · 8 mm</strong><span class="muted small">de diâmetro.</span></div>
-      <div class="min"><span class="k">Abaixo de 32 px</span><div class="demo"><img src="img/simbolo-t.svg" alt="" style="width:20px;height:20px"></div><strong>Símbolo "t"</strong><span class="muted small">Favicon e ícones de 16 px usam o símbolo da marca, não a BIA.</span></div>
+      <div class="min"><span class="k">BIA corpo inteiro</span><div class="demo"><img src="img/bia-acenando.webp" alt="" style="height:96px;width:auto"></div><strong>96 px · 25 mm</strong><span class="muted small">de altura. Abaixo disso, os óculos e o emblema somem.</span></div>
+      <div class="min"><span class="k">Avatar</span><div class="demo"><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:32px;height:32px"></div><strong>32 px · 8 mm</strong><span class="muted small">de diâmetro.</span></div>
+      <div class="min"><span class="k">Abaixo de 32 px</span><div class="demo"><img src="img/favicon-32.png" alt="" style="width:32px;height:32px"><img src="img/favicon-16.png" alt="" style="width:16px;height:16px"></div><strong>Ícone de rosto · 16 px</strong><span class="muted small">Favicon e ícones minúsculos usam só o rosto (orelhas, mecha e óculos), recortado do ícone de app.</span></div>
     </div>
   </div>
 </section>
@@ -513,22 +500,24 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 <!-- 10 AVATARES -->
 <section id="avatares" class="light">
   <div class="wrap">
-    <div class="sec-h"><span class="lab">10 — Avatares e ícones</span><h2>O busto frontal como rosto da marca</h2>
-      <p class="lead">Para perfil de Teams, Slack, bots, app e redes. O busto fica centralizado, com as orelhas dentro do círculo e o emblema Y visível embaixo. Use o fundo vermelho por padrão, o escuro em temas escuros e o claro sobre fotos.</p></div>
+    <div class="sec-h"><span class="lab">10 — Avatares e ícones</span><h2>O rosto da marca em cada formato</h2>
+      <p class="lead">Cada formato tem arte própria, gerada com o fundo e a luz juntos, sem recorte. O ícone de app é um close do rosto, que continua legível pequeno; perfil e avatares mostram cabeça e ombros com o emblema Y. Use o vermelho por padrão, o escuro em temas escuros e o claro sobre fotos. O ícone de app vai em quadrado cheio, porque iOS e Android aplicam a máscara de cantos sozinhos; a versão arredondada é só para prévia.</p></div>
     <div class="av">
       <figure><img src="img/p-avatar-circular-vermelho.webp" alt="Avatar circular vermelho" loading="lazy"><figcaption>Circular · vermelho (padrão)</figcaption></figure>
       <figure><img src="img/p-avatar-circular-escuro.webp" alt="Avatar circular escuro" loading="lazy"><figcaption>Circular · escuro</figcaption></figure>
       <figure><img src="img/p-avatar-circular-claro.webp" alt="Avatar circular claro" loading="lazy"><figcaption>Circular · claro</figcaption></figure>
-      <figure><img src="img/p-icone-app-1024.webp" alt="Ícone de app" loading="lazy"><figcaption>Ícone de app · 1024 px</figcaption></figure>
-      <figure><img src="img/p-perfil-quadrado-vermelho.webp" alt="Foto de perfil quadrada" loading="lazy"><figcaption>Perfil quadrado (corte automático)</figcaption></figure>
+      <figure><img src="img/p-icone-app-1024.webp" alt="Ícone de app" loading="lazy"><figcaption>Ícone de app · 1024 px (close do rosto)</figcaption></figure>
+      <figure><img src="img/p-perfil-quadrado-vermelho.webp" alt="Foto de perfil quadrada" loading="lazy"><figcaption>Perfil quadrado · Teams, Slack, bots</figcaption></figure>
     </div>
+    <p class="muted small" style="margin-top:14px;max-width:75ch">Mascotes de marca usam o próprio rosto como ícone até o tamanho de favicon; o guia do Duolingo, por exemplo, usa o rosto do Duo até 16 px. Por isso a BIA não vira o símbolo "t" do wordmark em tamanhos pequenos: o "t" continua sendo símbolo da b.ia tech, não da personagem.</p>
     <h3 class="sub-h">Escala de redução</h3>
     <div class="scale">
       <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:128px"><figcaption>128 px</figcaption></figure>
       <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:64px"><figcaption>64 px</figcaption></figure>
       <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:40px"><figcaption>40 px</figcaption></figure>
-      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:32px"><figcaption>32 px · mínimo</figcaption></figure>
-      <figure><img src="img/simbolo-t.svg" alt="" style="width:16px"><figcaption>16 px · símbolo</figcaption></figure>
+      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:32px"><figcaption>32 px · mínimo do avatar</figcaption></figure>
+      <figure><img src="img/favicon-32.png" alt="" style="width:32px;border-radius:6px"><figcaption>32 px · ícone</figcaption></figure>
+      <figure><img src="img/favicon-16.png" alt="" style="width:16px"><figcaption>16 px · favicon</figcaption></figure>
     </div>
   </div>
 </section>
@@ -536,37 +525,45 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 <!-- 11 APLICAÇÕES -->
 <section id="aplicacoes" class="dark grid">
   <div class="wrap">
-    <div class="sec-h"><span class="lab">11 — Aplicações</span><h2>Fundos e peças prontas</h2>
-      <p class="lead">Composições já resolvidas para os usos mais comuns. Todas seguem o mesmo esquema: wordmark com descritor de um lado, BIA do outro, fundo em vermelho, preto com grade de terminal ou branco.</p></div>
-    <h3 class="sub-h">Fundos de Teams (1920 × 1080)</h3>
+    <div class="sec-h"><span class="lab">11 — Aplicações</span><h2>Peças prontas, uma arte para cada uso</h2>
+      <p class="lead">Cada peça tem arte gerada para aquele formato, com a BIA iluminada dentro da cena. O texto e as marcas entram por cima, nítidos, a partir dos arquivos oficiais.</p></div>
+    <h3 class="sub-h">Fundos de Teams · 1920 × 1080</h3>
     <div class="gal">
-      <figure class="s2"><img src="img/p-fundo-teams-biatech-1-vermelho.webp" alt="Fundo Teams vermelho com símbolo Bradesco" loading="lazy"><figcaption>Vermelho com símbolo Bradesco · aprovado</figcaption></figure>
-      <figure class="s2"><img src="img/p-fundo-teams-biatech-2-branco.webp" alt="Fundo Teams branco" loading="lazy"><figcaption>Branco com símbolo vermelho</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-1-vermelho.webp" alt="Fundo Teams vermelho com símbolo Bradesco e a BIA acenando" loading="lazy"><figcaption>Vermelho com símbolo Bradesco</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-2-branco.webp" alt="Fundo Teams branco com símbolo vermelho e a BIA de braços cruzados" loading="lazy"><figcaption>Branco com símbolo vermelho</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-claro-minimo.webp" alt="Fundo Teams claro com a BIA acenando à direita" loading="lazy"><figcaption>Claro mínimo</figcaption></figure>
       <figure class="s2"><img src="img/p-fundo-teams-biatech-monumento.webp" alt="Fundo Teams monumento" loading="lazy"><figcaption>Monumento</figcaption></figure>
       <figure class="s2"><img src="img/p-fundo-teams-biatech-terminal.webp" alt="Fundo Teams terminal" loading="lazy"><figcaption>Terminal</figcaption></figure>
-      <figure class="s2"><img src="img/p-fundo-teams-claro-minimo-1920x1080.webp" alt="Fundo Teams claro mínimo" loading="lazy"><figcaption>Claro mínimo · novo</figcaption></figure>
-      <figure class="s2"><img src="img/p-capa-apresentacao-1920x1080.webp" alt="Capa de apresentação" loading="lazy"><figcaption>Capa de apresentação 16:9 · novo</figcaption></figure>
     </div>
-    <h3 class="sub-h">Papéis de parede, banner e assinatura</h3>
+    <h3 class="sub-h">Papéis de parede</h3>
     <div class="gal">
       <figure><img src="img/p-wallpaper-desktop-terminal-2560x1440.webp" alt="Papel de parede terminal" loading="lazy"><figcaption>Desktop terminal · 2560 × 1440</figcaption></figure>
       <figure><img src="img/p-wallpaper-desktop-vermelho-2560x1440.webp" alt="Papel de parede vermelho" loading="lazy"><figcaption>Desktop vermelho · 2560 × 1440</figcaption></figure>
-      <figure class="tall"><img src="img/p-wallpaper-celular-escuro-1179x2556.webp" alt="Papel de parede celular escuro" loading="lazy"><figcaption>Celular escuro</figcaption></figure>
-      <figure class="tall"><img src="img/p-wallpaper-celular-vermelho-1179x2556.webp" alt="Papel de parede celular vermelho" loading="lazy"><figcaption>Celular vermelho</figcaption></figure>
-      <figure class="s2" style="grid-column:span 4"><img src="img/p-banner-linkedin-1584x396.webp" alt="Banner LinkedIn" loading="lazy"><figcaption>Banner LinkedIn / capa de canal · 1584 × 396</figcaption><img src="img/p-assinatura-email-600x150.webp" alt="Assinatura de e-mail" loading="lazy" style="max-width:420px;margin-top:10px"><figcaption>Assinatura de e-mail · 600 × 150</figcaption></figure>
+      <figure class="tall"><img src="img/p-wallpaper-celular-escuro-1179x2556.webp" alt="Papel de parede celular escuro" loading="lazy"><figcaption>Celular escuro · 1179 × 2556</figcaption></figure>
+      <figure class="tall"><img src="img/p-wallpaper-celular-vermelho-1179x2556.webp" alt="Papel de parede celular vermelho" loading="lazy"><figcaption>Celular vermelho · 1179 × 2556</figcaption></figure>
     </div>
-    <h3 class="sub-h">Stickers para Teams e chat (512 px, PNG e WebP)</h3>
+    <h3 class="sub-h">Apresentação</h3>
+    <div class="gal">
+      <figure><img src="img/p-capa-apresentacao-1920x1080.webp" alt="Capa de apresentação vermelha com a BIA segurando um notebook" loading="lazy"><figcaption>Capa 16:9 · 1920 × 1080 · troque título e subtítulo</figcaption></figure>
+    </div>
+    <h3 class="sub-h">Redes e e-mail</h3>
+    <div class="gal">
+      <figure style="grid-column:1/-1"><img src="img/p-banner-linkedin-1584x396.webp" alt="Banner LinkedIn" loading="lazy"><figcaption>Banner LinkedIn / capa de canal · 1584 × 396 · a área inferior esquerda fica livre para a foto de perfil</figcaption></figure>
+      <figure style="grid-column:1/-1"><img src="img/p-assinatura-email-600x150.webp" alt="Assinatura de e-mail" loading="lazy" style="max-width:420px;background:#fff"><figcaption>Assinatura de e-mail · 600 × 150</figcaption></figure>
+    </div>
+    <h3 class="sub-h">Stickers para Teams e WhatsApp</h3>
+    <p class="muted small" style="margin:-6px 0 16px;max-width:75ch">Uma reação por sticker, com expressão exagerada, ação e legenda curta, como nos pacotes de chat. Formato do WhatsApp: 512 × 512 px, margem de 16 px, WebP abaixo de 100 KB, contorno branco. Também vão em PNG para o Teams.</p>
     <div class="stk">
-      <img src="img/s-sticker-acenando.webp" alt="Sticker acenando" loading="lazy">
-      <img src="img/s-sticker-apresentando.webp" alt="Sticker apresentando" loading="lazy">
-      <img src="img/s-sticker-apontando.webp" alt="Sticker apontando" loading="lazy">
-      <img src="img/s-sticker-joinha.webp" alt="Sticker joinha" loading="lazy">
-      <img src="img/s-sticker-comemorando.webp" alt="Sticker comemorando" loading="lazy">
-      <img src="img/s-sticker-pensando.webp" alt="Sticker pensando" loading="lazy">
-      <img src="img/s-sticker-laptop.webp" alt="Sticker notebook" loading="lazy">
-      <img src="img/s-sticker-bracos-cruzados.webp" alt="Sticker braços cruzados" loading="lazy">
-      <img src="img/s-sticker-sentada.webp" alt="Sticker sentada" loading="lazy">
-      <img src="img/s-sticker-busto.webp" alt="Sticker busto" loading="lazy">
+      <img src="img/s-sticker-bomdia.webp" alt="Sticker: Bom dia!" loading="lazy">
+      <img src="img/s-sticker-valeu.webp" alt="Sticker: Valeu!" loading="lazy">
+      <img src="img/s-sticker-top.webp" alt="Sticker: Top!" loading="lazy">
+      <img src="img/s-sticker-bora.webp" alt="Sticker: Bora!" loading="lazy">
+      <img src="img/s-sticker-deploy.webp" alt="Sticker: Deploy feito!" loading="lazy">
+      <img src="img/s-sticker-hmm.webp" alt="Sticker: Hmm..." loading="lazy">
+      <img src="img/s-sticker-ops.webp" alt="Sticker: Ops!" loading="lazy">
+      <img src="img/s-sticker-entendi.webp" alt="Sticker: Entendi!" loading="lazy">
+      <img src="img/s-sticker-reuniao.webp" alt="Sticker: Reunião?" loading="lazy">
+      <img src="img/s-sticker-ate.webp" alt="Sticker: Até amanhã!" loading="lazy">
     </div>
   </div>
 </section>
@@ -647,7 +644,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
       <li><b>Referências</b><span class="muted">Retrato oficial, turnaround, folha de poses e close do rosto, em JPEG até 1600 px, nessa ordem.</span></li>
       <li><b>Prompt mestre</b><span class="muted">Cole o texto abaixo e descreva só a cena. Sempre fundo liso cinza-claro se a ideia é recortar.</span></li>
       <li><b>Geração</b><span class="muted">GPT Image 2.6 Sunburst (edit, no fal), 1024 × 1536, qualidade alta. Cerca de US$ 0,10 por imagem.</span></li>
-      <li><b>Acabamento</b><span class="muted">SeedVR2 para ampliar 2× e BiRefNet v2 para recortar o fundo com o pelo.</span></li>
+      <li><b>Acabamento</b><span class="muted">Peça com fundo vazado: peça fundo transparente direto ao modelo (parâmetro background transparent), sem recorte posterior. Peça com cenário: gere a BIA dentro da cena, com a luz do lugar. SeedVR2 para ampliar 2×.</span></li>
       <li><b>Aprovação</b><span class="muted">Checklist abaixo, conferido com zoom. Se falhar um item, gere de novo; não retoque à mão.</span></li>
     </ol>
     <div class="two" style="margin-top:40px">
@@ -685,22 +682,24 @@ SCENE: &lt;descreva a cena aqui&gt;</pre>
       <p class="lead">Todas as peças deste manual estão no pacote, em alta resolução. Use sempre os arquivos do pacote em vez de copiar imagens desta página.</p></div>
     <div class="two">
 <div class="tree"><b>brandbook-bia-tech/</b>
-├─ <b>01-lockups/</b>      6 PNG · horizontal e vertical
-│                    positivo, negativo, vermelho
-├─ <b>02-avatares/</b>     5 PNG · circular ×3, app, perfil
-├─ <b>03-fundos/</b>       7 PNG · desktop, celular, capa,
-│  │                 banner, assinatura de e-mail
-│  └─ <b>teams/</b>        5 · fundos de webcam 1920×1080
-├─ <b>04-stickers/</b>     10 PNG + 10 WebP · 512 px
-├─ <b>05-personagem/</b>
-│  ├─ <b>poses-recortadas/</b> 10 PNG transparentes
-│  ├─ <b>fichas/</b>       turnaround, expressões, poses,
-│  │                 detalhes, retrato oficial
-│  ├─ bia-tech.json  traços, paleta, não-fazer
+├─ <b>01-lockups/</b>           6 PNG · horizontal e vertical
+│                         positivo, negativo, vermelho
+├─ <b>02-icones-e-avatares/</b>  ícone de app, perfil, 3 avatares,
+│                         favicons 16 a 512 px + .ico
+├─ <b>03-fundos-teams/</b>       5 JPG · 1920 × 1080
+├─ <b>04-papeis-de-parede/</b>   desktop ×2, celular ×2
+├─ <b>05-apresentacao/</b>       capa 16:9
+├─ <b>06-redes-e-email/</b>      banner LinkedIn, assinatura
+├─ <b>07-stickers/</b>           10 PNG + 10 WebP · 512 px
+├─ <b>08-personagem/</b>
+│  ├─ <b>poses-recortadas/</b>  10 PNG transparentes
+│  ├─ <b>fichas/</b>            turnaround, expressões, poses,
+│  │                      detalhes, retrato oficial
+│  ├─ bia-tech.json       traços, paleta, não-fazer
 │  └─ prompt-mestre.txt
-└─ <b>06-marca/</b>        wordmark b.ia tech SVG ×3</div>
+└─ <b>09-marca/</b>              wordmark b.ia tech SVG ×3</div>
       <div class="tbl"><table>
-        <tr><th>Versão</th><td>1.1 · 06.11.2026</td></tr>
+        <tr><th>Versão</th><td>2.0 · 06.11.2026</td></tr>
         <tr><th>Base</th><td>Ficha de personagem v2 (aprovada em 29.09.2026) e Manual de Identidade b.ia tech 2026</td></tr>
         <tr><th>Marca-mãe</th><td>Brandbook Bradesco (set/2026)</td></tr>
         <tr><th>Peça nova</th><td>Passa pelo checklist da seção 15 e pela aprovação da equipe b.ia tech antes de circular</td></tr>
