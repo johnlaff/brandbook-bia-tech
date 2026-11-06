@@ -240,6 +240,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
       <li><a href="#avatares">Avatares</a></li>
       <li><a href="#aplicacoes">Aplicações</a></li>
       <li><a href="#voz">Voz</a></li>
+      <li><a href="#movimento">Movimento e acesso</a></li>
       <li><a href="#usos">Certo e errado</a></li>
       <li><a href="#producao">Produção com IA</a></li>
       <li><a href="#arquivos">Arquivos</a></li>
@@ -453,7 +454,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 <section id="poses" class="light">
   <div class="wrap">
     <div class="sec-h"><span class="lab">08 — Biblioteca de poses</span><h2>Dez poses prontas, já recortadas</h2>
-      <p class="lead">Todas em PNG transparente em alta resolução, conferidas contra a anatomia. Prefira estas poses a gerar uma nova: cada pose nova precisa passar pelo checklist da seção 14.</p></div>
+      <p class="lead">Todas em PNG transparente em alta resolução, conferidas contra a anatomia. Prefira estas poses a gerar uma nova: cada pose nova precisa passar pelo checklist da seção 15.</p></div>
     <div class="poses">
       <div class="pose"><div class="ph"><img src="img/bia-acenando.webp" alt="BIA acenando" loading="lazy"></div><div class="t"><b>Acenando</b><span>Pose oficial. Boas-vindas, saudação.</span><span class="fn">bia-acenando.png</span></div></div>
       <div class="pose"><div class="ph"><img src="img/bia-apresentando.webp" alt="BIA apresentando" loading="lazy"></div><div class="t"><b>Apresentando</b><span>Lockups e slides. A mão aponta para o conteúdo.</span><span class="fn">bia-apresentando.png</span></div></div>
@@ -592,10 +593,30 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
   </div>
 </section>
 
+<!-- 13 MOVIMENTO, LEITURA E ACESSIBILIDADE -->
+<section id="movimento" class="white">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">13 — Silhueta, movimento e acessibilidade</span><h2>Reconhecível em qualquer tamanho, tela ou formato</h2>
+      <p class="lead">Guias de mascote atuais vão além da imagem parada: testam a silhueta, definem como o personagem se move e dizem como usá-lo de forma acessível e transparente. Estas são as regras da BIA.</p></div>
+    <h3 class="sub-h" style="margin-top:0">Teste de silhueta</h3>
+    <figure><img src="img/silhuetas.webp" alt="Cinco silhuetas pretas da BIA Tech em poses diferentes, todas reconhecíveis pelas orelhas grandes, pela mecha e pela cauda" loading="lazy" width="1820" height="640"><figcaption>Só a sombra já identifica a BIA: orelhas grandes, mecha espetada, cabeça grande e cauda volumosa. Pose nova que não passa nesse teste (braços colados no corpo, cauda escondida, orelhas cortadas) deve ser refeita.</figcaption></figure>
+    <div class="cards" style="margin-top:36px">
+      <div class="card"><h3>Movimento</h3><span class="muted">Passos curtos e leves, com um pequeno quique. A cauda acompanha o corpo com um leve atraso. Pisca a cada 3 a 5 segundos. As linhas do HUD rolam devagar e ficam sempre sobre o olho direito dela.</span></div>
+      <div class="card"><h3>Orelhas contam a emoção</h3><span class="muted">Em pé e para a frente: atenta, alegre. Inclinadas para trás: preocupada ou pedindo desculpas. Uma de cada lado: curiosa. Use as orelhas antes de exagerar no rosto.</span></div>
+      <div class="card"><h3>Animações curtas</h3><span class="muted">Stickers e reações animadas em loop de 2 a 4 segundos. Nada de piscar a tela ou flashes (no máximo 3 por segundo), e respeitar a opção de reduzir movimento do sistema.</span></div>
+      <div class="card"><h3>Texto alternativo</h3><span class="muted">Padrão: "BIA Tech, raposa mascote da b.ia tech, [ação]". Exemplo: "BIA Tech, raposa mascote da b.ia tech, acenando". Se a imagem é só decorativa, deixe o alt vazio.</span></div>
+      <div class="card"><h3>Contraste</h3><span class="muted">Texto branco sobre o vermelho #CC092F tem contraste 5,8:1 (passa no WCAG AA). Vermelho sobre preto fica em 3,4:1: só para títulos grandes, nunca para texto corrido. A mensagem nunca depende só da imagem dela.</span></div>
+      <div class="card"><h3>Transparência sobre IA</h3><span class="muted">Ela se apresenta como assistente de IA, nunca como pessoa. Imagens novas geradas com IA seguem a política interna de identificação de conteúdo sintético; não remova metadados de origem (C2PA) quando o arquivo tiver.</span></div>
+      <div class="card"><h3>Figurinos sazonais</h3><span class="muted">Gorro de Natal, camiseta de evento e capacete de obra são acessórios sobre o figurino base. Óculos, mecha, emblema e crachá continuam visíveis. Nunca trocar o figurino inteiro.</span></div>
+      <div class="card"><h3>Com pessoas reais</h3><span class="muted">Ela é pequena: a cabeça é um terço da altura. Em montagens com fotos, mantenha a escala de um mascote de mesa ou em tela, sem tocar ou cobrir o rosto das pessoas.</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- 13 USOS -->
 <section id="usos" class="dark grid">
   <div class="wrap">
-    <div class="sec-h"><span class="lab">13 — Usos corretos e incorretos</span><h2>O que pode e o que não pode</h2>
+    <div class="sec-h"><span class="lab">14 — Usos corretos e incorretos</span><h2>O que pode e o que não pode</h2>
       <p class="lead">Os três primeiros erros abaixo aconteceram de verdade em gerações com IA. Os demais são os deslizes mais comuns de diagramação.</p></div>
     <div class="dd">
       <figure><div class="st"><img src="img/bia-acenando.webp" alt="Uso correto: BIA original sobre fundo limpo" loading="lazy"></div><figcaption><span class="tag" style="color:var(--ok)">Correto</span>Arte oficial, fundo limpo, proporções intactas.</figcaption></figure>
@@ -620,12 +641,12 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 <!-- 14 PRODUÇÃO -->
 <section id="producao" class="white">
   <div class="wrap">
-    <div class="sec-h"><span class="lab">14 — Produção com IA</span><h2>Como gerar uma BIA nova sem perder o modelo</h2>
+    <div class="sec-h"><span class="lab">15 — Produção com IA</span><h2>Como gerar uma BIA nova sem perder o modelo</h2>
       <p class="lead">O padrão de mercado em 2026 para mascote 3D é gerar com modelos de imagem multi-referência ancorados na ficha oficial, e não com treino próprio (LoRA), que só compensa a partir de centenas de peças. Em 06/11/2026 comparamos os modelos atuais na mesma pose; o GPT Image 2.6 Sunburst foi o mais fiel.</p></div>
     <ol class="steps">
       <li><b>Referências</b><span class="muted">Retrato oficial, turnaround, folha de poses e close do rosto, em JPEG até 1600 px, nessa ordem.</span></li>
       <li><b>Prompt mestre</b><span class="muted">Cole o texto abaixo e descreva só a cena. Sempre fundo liso cinza-claro se a ideia é recortar.</span></li>
-      <li><b>Geração</b><span class="muted">GPT Image 2.6 Sunburst (edit, no fal), 1024 × 1536, qualidade alta. Cerca de US$ 0,08 por imagem.</span></li>
+      <li><b>Geração</b><span class="muted">GPT Image 2.6 Sunburst (edit, no fal), 1024 × 1536, qualidade alta. Cerca de US$ 0,10 por imagem.</span></li>
       <li><b>Acabamento</b><span class="muted">SeedVR2 para ampliar 2× e BiRefNet v2 para recortar o fundo com o pelo.</span></li>
       <li><b>Aprovação</b><span class="muted">Checklist abaixo, conferido com zoom. Se falhar um item, gere de novo; não retoque à mão.</span></li>
     </ol>
@@ -652,7 +673,7 @@ SCENE: &lt;descreva a cena aqui&gt;</pre>
       </div>
     </div>
     <h3 class="sub-h">Teste de modelos · mesma pose, mesmas referências</h3>
-    <figure><img src="img/comparativo.webp" alt="Comparativo: Nano Banana 2.1 na linha de cima, GPT Image 2.6 na de baixo" loading="lazy"><figcaption>Linha de cima: Nano Banana 2.1 (pernas mais longas, corpo esguio). Linha de baixo: GPT Image 2.6 Sunburst (proporção da ficha). O Nano Banana Pro saiu fora do modelo em corpo inteiro (ver seção 13).</figcaption></figure>
+    <figure><img src="img/comparativo.webp" alt="Comparativo: Nano Banana 2.1 na linha de cima, GPT Image 2.6 na de baixo" loading="lazy"><figcaption>Linha de cima: Nano Banana 2.1 (pernas mais longas, corpo esguio). Linha de baixo: GPT Image 2.6 Sunburst (proporção da ficha). O Nano Banana Pro saiu fora do modelo em corpo inteiro (ver seção 14).</figcaption></figure>
     <p class="muted small" style="margin-top:18px;max-width:75ch">Para vídeo, use estas poses como primeiro quadro em modelos imagem-para-vídeo e confira o mesmo checklist quadro a quadro nos trechos em que ela gira o corpo. Para a BIA falando, use o busto frontal como referência de avatar.</p>
   </div>
 </section>
@@ -660,7 +681,7 @@ SCENE: &lt;descreva a cena aqui&gt;</pre>
 <!-- 15 ARQUIVOS -->
 <section id="arquivos" class="dark grid">
   <div class="wrap">
-    <div class="sec-h"><span class="lab">15 — Arquivos e governança</span><h2>O pacote e quem cuida dele</h2>
+    <div class="sec-h"><span class="lab">16 — Arquivos e governança</span><h2>O pacote e quem cuida dele</h2>
       <p class="lead">Todas as peças deste manual estão no pacote, em alta resolução. Use sempre os arquivos do pacote em vez de copiar imagens desta página.</p></div>
     <div class="two">
 <div class="tree"><b>brandbook-bia-tech/</b>
@@ -679,10 +700,10 @@ SCENE: &lt;descreva a cena aqui&gt;</pre>
 │  └─ prompt-mestre.txt
 └─ <b>06-marca/</b>        wordmark b.ia tech SVG ×3</div>
       <div class="tbl"><table>
-        <tr><th>Versão</th><td>1.0 · 06.11.2026</td></tr>
+        <tr><th>Versão</th><td>1.1 · 06.11.2026</td></tr>
         <tr><th>Base</th><td>Ficha de personagem v2 (aprovada em 29.09.2026) e Manual de Identidade b.ia tech 2026</td></tr>
         <tr><th>Marca-mãe</th><td>Brandbook Bradesco (set/2026)</td></tr>
-        <tr><th>Peça nova</th><td>Passa pelo checklist da seção 14 e pela aprovação da equipe b.ia tech antes de circular</td></tr>
+        <tr><th>Peça nova</th><td>Passa pelo checklist da seção 15 e pela aprovação da equipe b.ia tech antes de circular</td></tr>
         <tr><th>Mudanças na personagem</th><td>Só com nova versão deste manual. Figurinos sazonais (Natal, eventos) e o capacete amarelo de obra são acessórios de cena sobre o figurino base, que continua visível.</td></tr>
       </table></div>
     </div>
@@ -704,4 +725,3 @@ document.getElementById('cp').addEventListener('click',function(){
   try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
 });
 </script>
-</html>
