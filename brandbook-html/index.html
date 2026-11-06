@@ -1,0 +1,707 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brandbook BIA Tech</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,800&family=Fira+Code:wght@400;500&display=swap">
+<style>
+/* Layout: manual em fichário de slides, alternando faixas escuras (terminal b.ia tech) e claras, cada seção com rótulo "NN — TEMA" como no manual oficial. Visual único, sem modo claro/escuro alternativo. */
+:root{
+  --red:#CC092F; --red-hi:#E00B39; --red-lo:#A5091B;
+  --ink:#0A0A0A; --ink-2:#111111; --ink-3:#1A1A1A; --line-d:rgba(255,255,255,.10);
+  --paper:#F4F2EF; --white:#FFFFFF; --line-l:#E2DED9;
+  --t-d:#FFFFFF; --t-d2:rgba(255,255,255,.66); --t-d3:rgba(255,255,255,.42);
+  --t-l:#141414; --t-l2:#55524F; --t-l3:#8A8580;
+  --ok:#22C55E; --no:#CC092F; --cyan:#76DBE4;
+  --f-sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"Fira Code","SFMono-Regular",Consolas,"Courier New",monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--t-d);font:16px/1.6 var(--f-sans);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+table,td,th{color:inherit}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:96px}
+.dark{background:var(--ink);color:var(--t-d)}
+.dark.grid{background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);background-size:56px 56px;background-color:var(--ink)}
+.dark.grid{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px)}
+.light{background:var(--paper);color:var(--t-l)}
+.white{background:var(--white);color:var(--t-l)}
+.lab{font:500 12px/1.4 var(--f-sans);letter-spacing:.3em;text-transform:uppercase;color:var(--red)}
+.sec-h{display:grid;gap:14px;margin-bottom:48px;max-width:760px}
+.sec-h h2{font-size:clamp(30px,4.2vw,46px);line-height:1.08}
+.lead{font-size:18px;line-height:1.65;max-width:68ch}
+.dark .lead,.dark .muted{color:var(--t-d2)}
+.light .lead,.light .muted,.white .lead,.white .muted{color:var(--t-l2)}
+.small{font-size:14px}
+.mono{font-family:var(--f-mono)}
+.rule{width:44px;height:3px;background:var(--red)}
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-d)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+.nav .wrap{display:flex;gap:22px;align-items:center;height:52px}
+.nav img{height:18px;width:auto;flex:none}
+.nav ol{display:flex;gap:18px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font:500 12px var(--f-sans);letter-spacing:.08em;text-transform:uppercase;min-width:0}
+.nav ol::-webkit-scrollbar{display:none}
+.nav a{text-decoration:none;color:var(--t-d3)}
+.nav a:hover,.nav a:focus-visible{color:var(--t-d)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* capa */
+.cover{position:relative;overflow:hidden;padding-block:72px 0}
+.cover::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 78% 62%,rgba(204,9,47,.32),transparent 70%);pointer-events:none}
+.cover .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:end}
+.cover-tx{display:grid;gap:26px;padding-bottom:96px;min-width:0}
+.cover-tx .wm{width:min(420px,80%)}
+.cover h1{font-size:clamp(40px,6vw,76px);line-height:1;letter-spacing:-.035em}
+.cover h1 span{color:var(--red)}
+.term{font:13px/1.9 var(--f-mono);color:var(--t-d2)}
+.term b{color:var(--ok);font-weight:400}
+.term i{font-style:normal;color:var(--red)}
+.cursor{display:inline-block;width:.6em;height:1.1em;vertical-align:-3px;background:var(--red);animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.cursor{animation:none}}
+.cover-img{align-self:end;justify-self:center}
+.cover-img img{height:min(640px,70vw);width:auto}
+.meta{display:flex;flex-wrap:wrap;gap:8px 28px;font:12px var(--f-mono);color:var(--t-d3)}
+/* layouts */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.two>*{min-width:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{padding:22px;border:1px solid var(--line-l);background:var(--white);display:grid;gap:8px;align-content:start}
+.dark .card{border-color:var(--line-d);background:var(--ink-2)}
+.card h3{font-size:18px}
+.k{font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--t-l3)}
+.dark .k{color:var(--t-d3)}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-l);vertical-align:top}
+th{font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--t-l3);width:34%}
+.dark th,.dark td{border-color:var(--line-d)} .dark th{color:var(--t-d3)}
+.tbl{overflow-x:auto}
+/* arquitetura */
+.arch{display:grid;gap:12px}
+.tier{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center;padding:22px 26px;border:1px solid var(--line-d);background:var(--ink-2)}
+.tier>*{min-width:0}
+.tier .logo{height:56px;display:flex;align-items:center}
+.tier .logo img{max-height:44px;width:auto}
+.tier.mascot{border-color:var(--red)}
+.tier .logo.fox img{max-height:84px}
+.tier h3{font-size:18px;margin-bottom:4px}
+/* anatomia */
+.anat{position:relative;background:#E9E8EA;max-width:560px}
+.pin{position:absolute;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:var(--red);color:#fff;font:700 12px/26px var(--f-sans);text-align:center;box-shadow:0 0 0 3px rgba(255,255,255,.85)}
+.marks{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:m}
+.marks li{display:grid;grid-template-columns:34px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line-l);font-size:15px}
+.marks li::before{counter-increment:m;content:counter(m,decimal-leading-zero);font:500 12px/1.9 var(--f-mono);color:var(--red)}
+.marks b{font-weight:700}
+/* proporção */
+.prop{position:relative;max-width:520px;background:#E9E8EA}
+.guide{position:absolute;left:0;right:0;border-top:1px dashed var(--red)}
+.guide span{position:absolute;right:6px;top:-22px;font:500 11px var(--f-mono);color:var(--red);background:rgba(233,232,234,.9);padding:2px 6px}
+.bracket{position:absolute;left:10px;width:12px;border:2px solid var(--red);border-right:0}
+.bracket span{position:absolute;left:18px;top:50%;transform:translateY(-50%);font:700 13px var(--f-sans);color:var(--red);white-space:nowrap}
+/* figuras */
+figure{margin:0;display:grid;gap:10px}
+figcaption{font-size:13px;color:var(--t-l2)}
+.dark figcaption{color:var(--t-d3)}
+.sheet{background:#E9E8EA}
+/* paleta */
+.sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.chip{display:grid;gap:0;border:1px solid var(--line-d);background:var(--ink-2)}
+.chip i{display:block;height:74px}
+.chip div{padding:10px 12px;display:grid;gap:2px}
+.chip b{font-size:13px;font-weight:500}
+.chip code{font:12px var(--f-mono);color:var(--t-d2)}
+.light .chip{border-color:var(--line-l);background:var(--white)} .light .chip code{color:var(--t-l2)}
+.sub-h{font-size:20px;margin:48px 0 18px}
+.sub-h:first-child{margin-top:0}
+/* expressões */
+.expr{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.expr-wrap{position:relative;max-width:760px}
+.expr-wrap img{width:100%}
+.expr-lab{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr)}
+.expr-lab span{align-self:end;justify-self:start;margin:8px;font:500 11px var(--f-mono);letter-spacing:.06em;background:rgba(10,10,10,.82);color:#fff;padding:4px 8px}
+.uses{display:grid;gap:0}
+.uses div{display:grid;grid-template-columns:150px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-d);font-size:15px}
+.uses div>*{min-width:0}
+.uses b{font-weight:500;color:var(--t-d)} .uses span{color:var(--t-d2)}
+/* poses */
+.poses{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.pose{background:linear-gradient(180deg,#fff,#ECEAE7);border:1px solid var(--line-l);display:grid;grid-template-rows:260px auto;gap:0}
+.pose .ph{display:flex;align-items:flex-end;justify-content:center;padding:14px 10px 0;overflow:hidden}
+.pose .ph img{max-height:100%;width:auto}
+.pose div.t{padding:12px 14px;display:grid;gap:2px;border-top:1px solid var(--line-l)}
+.pose b{font-size:14px} .pose span{font-size:12.5px;color:var(--t-l2);line-height:1.45}
+.fn{font:11px var(--f-mono);color:var(--t-l3)}
+.dark .fn{color:var(--t-d3)}
+/* lockups */
+.lk{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.lk figure img{width:100%}
+.lk .pos{background:#fff}
+.lk .chk{background-color:#fff;background-image:linear-gradient(45deg,#eee 25%,transparent 25%),linear-gradient(-45deg,#eee 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#eee 75%),linear-gradient(-45deg,transparent 75%,#eee 75%);background-size:20px 20px;background-position:0 0,0 10px,10px -10px,-10px 0}
+.lk.v{grid-template-columns:repeat(3,1fr)}
+.cs{position:relative;background:#fff;padding:56px;max-width:720px}
+.cs .box{position:relative;outline:1px dashed var(--red);outline-offset:0}
+.cs .zone{position:absolute;inset:-40px;border:1px solid rgba(204,9,47,.35);background:repeating-linear-gradient(45deg,rgba(204,9,47,.06) 0 6px,transparent 6px 12px);pointer-events:none}
+.cs .x{position:absolute;font:700 13px var(--f-mono);color:var(--red)}
+.mins{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.min{padding:18px;border:1px solid var(--line-d);background:var(--ink-2);display:grid;gap:10px;align-content:start}
+.min .demo{height:72px;display:flex;align-items:flex-end;gap:8px}
+.min strong{font-size:22px;letter-spacing:-.02em}
+/* avatares */
+.av{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:end}
+.scale{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;padding:24px;background:var(--white);border:1px solid var(--line-l)}
+.scale figure{justify-items:center}
+.scale figcaption{font:11px var(--f-mono)}
+/* fundos */
+.gal{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.gal figure{grid-column:span 3}
+.gal figure.s2{grid-column:span 2}
+.gal figure.tall{grid-column:span 1}
+.gal img{width:100%;border:1px solid var(--line-d)}
+.stk{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;background:#2B2B33;padding:16px}
+/* voz */
+.say{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.say>div{padding:22px;border:1px solid var(--line-l);background:var(--white);display:grid;gap:12px;align-content:start}
+.say ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:15px}
+.tag{display:inline-flex;align-items:center;gap:8px;font:500 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+.tag::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
+.tag.y{color:#15803D} .tag.n{color:var(--red)}
+.quote{font-size:17px;padding:14px 16px;background:var(--paper);border-left:3px solid #15803D}
+.quote.n{border-left-color:var(--red)}
+/* do / dont */
+.dd{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.dd figure{background:var(--ink-2);border:1px solid var(--line-d);padding:0;gap:0}
+.dd .st{aspect-ratio:4/5;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;position:relative;background:#E9E8EA}
+.dd .st img{max-height:94%;width:auto}
+.dd .st img.full{max-height:none;width:100%;height:100%;object-fit:cover}
+.dd figcaption{padding:12px 14px;display:grid;gap:4px;font-size:13.5px;color:var(--t-d2)}
+.dd figcaption .tag{font-size:10.5px}
+.dd .bad{border-color:rgba(204,9,47,.55)}
+.dd .bad .st::after{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - 1.5px),rgba(204,9,47,.9) calc(50% - 1.5px),rgba(204,9,47,.9) calc(50% + 1.5px),transparent calc(50% + 1.5px))}
+.fakelogo{position:absolute;top:18px;left:14px;font:800 22px/1 "Comic Sans MS","Chalkboard SE",cursive;color:#F28C28;transform:rotate(-8deg);text-shadow:2px 2px 0 #222}
+/* produção */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:s}
+.steps li{padding:18px;border:1px solid var(--line-l);background:var(--white);display:grid;gap:6px;align-content:start;font-size:14px}
+.steps li::before{counter-increment:s;content:"PASSO " counter(s);font:500 11px var(--f-mono);letter-spacing:.12em;color:var(--red)}
+.steps b{font-size:15px}
+.qa{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.qa li{padding:10px 0 10px 30px;border-bottom:1px solid var(--line-l);position:relative;font-size:15px}
+.qa li::before{content:"";position:absolute;left:0;top:13px;width:16px;height:16px;border:2px solid var(--red)}
+pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--f-mono);padding:20px;overflow-x:auto;white-space:pre-wrap;word-break:break-word;max-height:340px}
+.copy{justify-self:start;font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--red);color:#fff;border:0;padding:10px 16px;cursor:pointer}
+.copy:hover{background:var(--red-lo)}
+/* arquivos */
+.tree{font:13.5px/1.9 var(--f-mono);color:var(--t-d2);background:var(--ink-2);border:1px solid var(--line-d);padding:22px;overflow-x:auto;white-space:pre}
+.tree b{color:var(--t-d);font-weight:500}
+.foot{padding-block:56px;border-top:1px solid var(--line-d)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between}
+.foot img{height:26px;width:auto}
+
+@media (max-width:980px){
+  .cover .wrap,.two{grid-template-columns:1fr}
+  .cover-tx{padding-bottom:24px}
+  .poses{grid-template-columns:repeat(3,1fr)}
+  .lk,.lk.v{grid-template-columns:1fr 1fr}
+  .mins{grid-template-columns:1fr 1fr}
+  .av{grid-template-columns:repeat(3,1fr)}
+  .dd{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr 1fr}
+  .stk{grid-template-columns:repeat(5,1fr)}
+  .gal figure,.gal figure.s2{grid-column:span 6}
+  .gal figure.tall{grid-column:span 3}
+}
+@media (max-width:560px){
+  section{padding-block:64px}
+  .poses,.lk,.lk.v,.dd,.say,.qa,.steps,.mins{grid-template-columns:1fr}
+  .poses{grid-template-columns:1fr 1fr}
+  .av{grid-template-columns:1fr 1fr}
+  .tier{grid-template-columns:1fr;gap:12px}
+  .uses div{grid-template-columns:1fr;gap:2px}
+  .cs{padding:44px 40px}
+}
+</style>
+
+<nav class="nav" aria-label="Seções">
+  <div class="wrap">
+    <img src="img/biatech-negativo.svg" alt="b.ia tech">
+    <ol>
+      <li><a href="#quem">Quem é</a></li>
+      <li><a href="#arquitetura">Marcas</a></li>
+      <li><a href="#anatomia">Anatomia</a></li>
+      <li><a href="#proporcoes">Proporções</a></li>
+      <li><a href="#turnaround">Turnaround</a></li>
+      <li><a href="#cores">Cores</a></li>
+      <li><a href="#expressoes">Expressões</a></li>
+      <li><a href="#poses">Poses</a></li>
+      <li><a href="#lockups">Lockups</a></li>
+      <li><a href="#avatares">Avatares</a></li>
+      <li><a href="#aplicacoes">Aplicações</a></li>
+      <li><a href="#voz">Voz</a></li>
+      <li><a href="#usos">Certo e errado</a></li>
+      <li><a href="#producao">Produção com IA</a></li>
+      <li><a href="#arquivos">Arquivos</a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- CAPA -->
+<header class="dark grid cover">
+  <div class="wrap">
+    <div class="cover-tx">
+      <span class="lab">Brand Identity · Mascote · 2026</span>
+      <img class="wm" src="img/biatech-negativo.svg" alt="b.ia tech">
+      <h1>Brandbook do mascote <span>BIA&nbsp;Tech</span></h1>
+      <p class="lead">Como desenhar, aplicar e dar voz à BIA Tech, a raposa assistente da b.ia tech, sem que ela perca a forma em nenhuma peça.</p>
+      <div class="term" aria-hidden="true">
+        <div><b>[ OK ]</b> <i>character</i> bia-tech v2 · 2 arms · 2 brown eyes</div>
+        <div><b>[ OK ]</b> <i>brand</i> b.ia tech · Bradesco Inteligência Artificial</div>
+        <div><span style="color:#fff">[ ··· ]</span> Olá! Sou a BIA Tech, sua assistente inteligente<span class="cursor"></span></div>
+      </div>
+      <div class="meta"><span>Versão 1.0</span><span>06.11.2026</span><span>Segue o Manual de Identidade b.ia tech 2026</span></div>
+    </div>
+    <div class="cover-img"><img src="img/bia-apresentando.webp" alt="BIA Tech em pé, com a mão estendida apresentando a marca" width="560" height="958"></div>
+  </div>
+</header>
+
+<!-- 01 QUEM É -->
+<section id="quem" class="light">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">01 — Personagem</span><h2>Quem é a BIA Tech</h2>
+      <p class="lead">A BIA Tech é a embaixadora da b.ia tech. Ela dá rosto à camada de inteligência que o Bradesco colocou no jeito de desenvolver software: presente quando ajuda, discreta quando não precisa aparecer.</p></div>
+    <div class="two">
+      <div class="tbl"><table>
+        <tr><th>Nome</th><td><b>BIA Tech</b>. Escrito sempre assim, com BIA em maiúsculas. A grafia em minúsculas <b>b.ia tech</b> é só da marca.</td></tr>
+        <tr><th>Espécie</th><td>Raposa-vermelha antropomórfica, fêmea</td></tr>
+        <tr><th>Papel</th><td>Assistente inteligente das ferramentas b.ia tech (BIA CHAT, AGENTIX, CHANGE GUARDIAN, EASYPERF, TDM, BIA TECH 360)</td></tr>
+        <tr><th>Estilo</th><td>3D de longa de animação, pelo macio e realista, proporções fofas. Nunca 2D chapado, anime ou foto-realista.</td></tr>
+        <tr><th>Fala-assinatura</th><td>"Olá! Sou a BIA Tech, sua assistente inteligente."</td></tr>
+        <tr><th>Por que raposa</th><td>Esperta, curiosa e rápida, com o vermelho da marca no próprio pelo.</td></tr>
+      </table></div>
+      <div class="cards">
+        <div class="card"><span class="k">Traço 1</span><h3>Curiosa</h3><p class="small muted">Gosta de entender o problema antes de propor a solução. Pergunta quando falta contexto.</p></div>
+        <div class="card"><span class="k">Traço 2</span><h3>Prestativa</h3><p class="small muted">Está ao lado do time, nunca no lugar dele. Reduz o trabalho repetitivo para sobrar tempo para o que importa.</p></div>
+        <div class="card"><span class="k">Traço 3</span><h3>Precisa</h3><p class="small muted">Fala com clareza técnica, sem jargão à toa. Quando não sabe, diz que não sabe.</p></div>
+        <div class="card"><span class="k">Traço 4</span><h3>Bem-humorada</h3><p class="small muted">Leve na medida certa. Um sorriso ou uma piscadela, nunca piada às custas de alguém.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 ARQUITETURA -->
+<section id="arquitetura" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">02 — Arquitetura de marca</span><h2>Bradesco, b.ia tech e BIA Tech</h2>
+      <p class="lead">São três camadas com papéis diferentes. A BIA Tech não tem logotipo próprio: a personagem já é a assinatura visual dela e aparece sempre ao lado do wordmark b.ia tech, nunca no lugar dele.</p></div>
+    <div class="arch">
+      <div class="tier"><div class="logo"><img src="img/bradesco-branco.webp" alt="Bradesco"></div><div><h3>Bradesco · marca-mãe</h3><p class="muted small">Vermelho #CC092F sempre com branco, fonte Bradesco Sans, área de proteção 2X. Aparece como endosso em peças institucionais (topo-esquerdo ou base-direita), seguindo o brandbook Bradesco.</p></div></div>
+      <div class="tier"><div class="logo"><img src="img/biatech-negativo.svg" alt="b.ia tech"></div><div><h3>b.ia tech · marca do produto</h3><p class="muted small">Wordmark de tipografia exclusiva, ponto circular vermelho e barra no "t". Descritor "Bradesco Inteligência Artificial". Regras no Manual de Identidade b.ia tech.</p></div></div>
+      <div class="tier mascot"><div class="logo fox"><img src="img/bia-busto.webp" alt="Busto da BIA Tech"></div><div><h3>BIA Tech · mascote e embaixadora</h3><p class="muted small">Personagem 3D que fala com as pessoas, explica, comemora e orienta. Usada em comunicação interna, onboarding, eventos, produto e redes. Sempre acompanhada do wordmark quando a peça precisa ser identificada.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ANATOMIA -->
+<section id="anatomia" class="white">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">03 — Anatomia</span><h2>As 14 marcas que fazem dela a BIA</h2>
+      <p class="lead">Se uma destas marcas faltar, a peça está fora do modelo. Use a lista como checklist de aprovação em qualquer arte nova, feita à mão ou com IA.</p></div>
+    <div class="two">
+      <div class="anat">
+        <img src="img/05-retrato-oficial.webp" alt="Retrato oficial da BIA Tech com marcações numeradas" width="1449" height="1800">
+        <span class="pin" style="left:50%;top:17%">1</span>
+        <span class="pin" style="left:36%;top:10%">2</span>
+        <span class="pin" style="left:35%;top:27%">3</span>
+        <span class="pin" style="left:42%;top:30.5%">4</span>
+        <span class="pin" style="left:57%;top:30%">5</span>
+        <span class="pin" style="left:54%;top:43%">6</span>
+        <span class="pin" style="left:49.5%;top:48%">7</span>
+        <span class="pin" style="left:57%;top:50.5%">8</span>
+        <span class="pin" style="left:66.5%;top:46%">9</span>
+        <span class="pin" style="left:27%;top:47%">10</span>
+        <span class="pin" style="left:51%;top:63.5%">11</span>
+        <span class="pin" style="left:63%;top:80%">12</span>
+        <span class="pin" style="left:44%;top:92%">13</span>
+        <span class="pin" style="left:20%;top:72%">14</span>
+      </div>
+      <ol class="marks">
+        <li><span><b>Mecha branca espetada</b> no alto da cabeça.</span></li>
+        <li><span><b>Orelhas enormes</b> de ponta escura e interior branco.</span></li>
+        <li><span><b>Óculos de proteção</b> de armação preta grossa, lente única transparente levemente avermelhada.</span></li>
+        <li><span><b>HUD ciano</b> em linhas finas sobre o olho direito dela (à esquerda de quem olha), sem painel azul.</span></li>
+        <li><span><b>Os dois olhos castanhos</b>, grandes e iguais. O olho atrás do HUD também é castanho.</span></li>
+        <li><span><b>Gola alta azul-marinho</b> com forro vermelho.</span></li>
+        <li><span><b>Emblema hexagonal ciano</b> com o símbolo "Y" no peitoral branco-acinzentado.</span></li>
+        <li><span><b>Crachá amarelo</b> no peito esquerdo dela.</span></li>
+        <li><span><b>Ombreiras cinza</b> com ponto vermelho.</span></li>
+        <li><span><b>Exatamente 2 braços</b>, luvas pretas sem dedos, 4 dedos + polegar, almofadas rosadas.</span></li>
+        <li><span><b>Cinto ocre</b> com fivela retangular e bolsas.</span></li>
+        <li><span><b>Joelheiras hexagonais</b> ocre com centro cinza.</span></li>
+        <li><span><b>Botas grandes</b>, arredondadas, branco-acinzentadas.</span></li>
+        <li><span><b>Cauda volumosa</b> vermelha com ponta branca.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PROPORÇÕES -->
+<section id="proporcoes" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">04 — Proporções</span><h2>Três cabeças de altura</h2>
+      <p class="lead">A BIA mede três cabeças, contando as orelhas. É essa cabeça grande sobre um corpo baixo e robusto que a deixa fofa e reconhecível. Pernas compridas ou corpo esguio transformam a personagem em outra.</p></div>
+    <div class="two">
+      <div class="prop">
+        <img src="img/05-retrato-oficial.webp" alt="Retrato oficial com guias de proporção" width="1449" height="1800">
+        <div class="guide" style="top:7.8%"><span>0 · ponta das orelhas</span></div>
+        <div class="guide" style="top:38%"><span>1 · queixo</span></div>
+        <div class="guide" style="top:68.5%"><span>2 · quadril</span></div>
+        <div class="guide" style="top:98.6%"><span>3 · sola das botas</span></div>
+        <div class="bracket" style="top:7.8%;height:30.2%"><span>1/3</span></div>
+      </div>
+      <div class="tbl"><table>
+        <tr><th>Cabeça</th><td>≈ 1/3 da altura total, com orelhas</td></tr>
+        <tr><th>Orelhas</th><td>Quase metade da altura da cabeça</td></tr>
+        <tr><th>Olhos</th><td>Grandes, ocupando quase toda a altura da lente</td></tr>
+        <tr><th>Tronco + pernas</th><td>2/3 da altura, pernas curtas e botas grandes</td></tr>
+        <tr><th>Cauda</th><td>Quase do tamanho do corpo, sempre visível em corpo inteiro</td></tr>
+        <tr><th>Escala de grupo</th><td>Ao lado de pessoas, a ponta das orelhas fica na altura da cintura de um adulto</td></tr>
+        <tr><th>Câmera</th><td>Preferir ângulo na altura do peito dela ou levemente de baixo. Evitar plongée forte, que encolhe o corpo.</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 TURNAROUND -->
+<section id="turnaround" class="light">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">05 — Turnaround</span><h2>Frente, três-quartos, perfil e costas</h2>
+      <p class="lead">A referência oficial de volume. Use as cinco vistas para modelar em 3D, animar ou orientar um modelo de IA. As costas mostram a placa da armadura, o cinto e o caimento da cauda.</p></div>
+    <figure><img class="sheet" src="img/01-turnaround.webp" alt="Turnaround da BIA Tech em cinco vistas" width="1800" height="764"><figcaption>01-turnaround.png · 3168 × 1344 px · arquivo canônico</figcaption></figure>
+    <h3 class="sub-h">Detalhes de figurino</h3>
+    <figure><img class="sheet" src="img/04-detalhes.webp" alt="Prancha de detalhes: óculos, emblema, luva, cinto, joelheira e bota" width="1800" height="1005"><figcaption>04-detalhes.png · óculos com lente vazia, emblema Y, luva sem dedos, cinto, joelheira e bota</figcaption></figure>
+  </div>
+</section>
+
+<!-- 06 CORES -->
+<section id="cores" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">06 — Cores</span><h2>Paleta da personagem e da marca</h2>
+      <p class="lead">A paleta da personagem é fixa e serve para conferir renders e para quem for modelar. A paleta da marca define os fundos em que ela aparece. Laranja nunca entra: é cor de concorrente.</p></div>
+    <h3 class="sub-h">Personagem</h3>
+    <div class="sw">
+      <div class="chip"><i style="background:#E06A5E"></i><div><b>Pelo vermelho</b><code>#E06A5E</code></div></div>
+      <div class="chip"><i style="background:#9E3133"></i><div><b>Pelo sombra</b><code>#9E3133</code></div></div>
+      <div class="chip"><i style="background:#EDE8E6"></i><div><b>Pelo branco</b><code>#EDE8E6</code></div></div>
+      <div class="chip"><i style="background:#3E232B"></i><div><b>Ponta da orelha</b><code>#3E232B</code></div></div>
+      <div class="chip"><i style="background:#8A4B24"></i><div><b>Íris (os dois olhos)</b><code>#8A4B24</code></div></div>
+      <div class="chip"><i style="background:#211D2D"></i><div><b>Armação dos óculos</b><code>#211D2D</code></div></div>
+      <div class="chip"><i style="background:#8A3F4E"></i><div><b>Lente</b><code>#8A3F4E</code></div></div>
+      <div class="chip"><i style="background:#76DBE4"></i><div><b>Ciano HUD / emblema</b><code>#76DBE4</code></div></div>
+      <div class="chip"><i style="background:#1B2140"></i><div><b>Jaqueta navy</b><code>#1B2140</code></div></div>
+      <div class="chip"><i style="background:#C8323F"></i><div><b>Forro da gola</b><code>#C8323F</code></div></div>
+      <div class="chip"><i style="background:#D5D0D2"></i><div><b>Armadura</b><code>#D5D0D2</code></div></div>
+      <div class="chip"><i style="background:#EFD084"></i><div><b>Crachá</b><code>#EFD084</code></div></div>
+      <div class="chip"><i style="background:#F02F45"></i><div><b>Ponto do ombro</b><code>#F02F45</code></div></div>
+      <div class="chip"><i style="background:#323040"></i><div><b>Luva</b><code>#323040</code></div></div>
+      <div class="chip"><i style="background:#403B4B"></i><div><b>Macacão</b><code>#403B4B</code></div></div>
+      <div class="chip"><i style="background:#3A3B52"></i><div><b>Calça navy</b><code>#3A3B52</code></div></div>
+      <div class="chip"><i style="background:#C08A4E"></i><div><b>Ocre cinto e joelheira</b><code>#C08A4E</code></div></div>
+      <div class="chip"><i style="background:#CFC6C5"></i><div><b>Bota</b><code>#CFC6C5</code></div></div>
+    </div>
+    <h3 class="sub-h">Marca e fundos permitidos</h3>
+    <div class="sw">
+      <div class="chip"><i style="background:#CC092F"></i><div><b>Vermelho b.ia tech</b><code>#CC092F · C0 M93 Y78 K20</code></div></div>
+      <div class="chip"><i style="background:#0A0A0A;outline:1px solid rgba(255,255,255,.12);outline-offset:-1px"></i><div><b>Preto</b><code>#0A0A0A · K100</code></div></div>
+      <div class="chip"><i style="background:#FFFFFF"></i><div><b>Branco</b><code>#FFFFFF</code></div></div>
+      <div class="chip"><i style="background:#F4F2EF"></i><div><b>Off-white de apoio</b><code>#F4F2EF</code></div></div>
+      <div class="chip"><i style="background:linear-gradient(90deg,#E00B39,#A5091B)"></i><div><b>Gradiente vermelho</b><code>#E00B39 → #A5091B</code></div></div>
+      <div class="chip"><i style="background:#22C55E"></i><div><b>Verde terminal (só UI)</b><code>#22C55E</code></div></div>
+    </div>
+    <p class="muted small" style="margin-top:20px;max-width:70ch">Sobre vermelho, o pelo dela tende a se misturar ao fundo. Use o gradiente com área mais escura atrás da cauda e das orelhas, ou uma luz de recorte suave, como nos fundos do pacote.</p>
+  </div>
+</section>
+
+<!-- 07 EXPRESSÕES -->
+<section id="expressoes" class="dark" style="background:#111">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">07 — Expressões</span><h2>Nove humores, cada um com seu uso</h2>
+      <p class="lead">A expressão muda o recado. Escolha pelo contexto da mensagem, não pelo gosto da arte. As orelhas trabalham junto com os olhos: em pé quando ela está atenta, abaixadas quando está preocupada.</p></div>
+    <div class="two">
+      <div class="expr-wrap">
+        <img class="sheet" src="img/02-expressoes.webp" alt="Folha com nove expressões da BIA Tech" width="1800" height="1800">
+        <div class="expr-lab" aria-hidden="true"><span>01 Sorriso</span><span>02 Conversando</span><span>03 Gargalhada</span><span>04 Surpresa</span><span>05 Pensativa</span><span>06 Piscadela</span><span>07 Preocupada</span><span>08 Determinada</span><span>09 Empolgada</span></div>
+      </div>
+      <div class="uses">
+        <div><b>01 Sorriso</b><span>Padrão. Avatar, assinatura, saudação, telas de boas-vindas.</span></div>
+        <div><b>02 Conversando</b><span>Explicações, tutoriais, respostas do chat.</span></div>
+        <div><b>03 Gargalhada</b><span>Celebrações internas e conquistas do time. Usar com parcimônia.</span></div>
+        <div><b>04 Surpresa</b><span>Novidades, lançamentos, "você sabia?".</span></div>
+        <div><b>05 Pensativa</b><span>Carregando, processando, perguntas abertas.</span></div>
+        <div><b>06 Piscadela</b><span>Dicas e atalhos.</span></div>
+        <div><b>07 Preocupada</b><span>Avisos leves, erro recuperável, "algo deu errado, tente de novo".</span></div>
+        <div><b>08 Determinada</b><span>Metas, desafios, chamadas para ação.</span></div>
+        <div><b>09 Empolgada</b><span>Resultados positivos, marcos de entrega.</span></div>
+        <p class="muted small" style="padding-top:16px">Não usar a BIA em incidentes graves, comunicados regulatórios, temas de pessoas sensíveis ou más notícias. Nesses casos, só o wordmark.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 POSES -->
+<section id="poses" class="light">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">08 — Biblioteca de poses</span><h2>Dez poses prontas, já recortadas</h2>
+      <p class="lead">Todas em PNG transparente em alta resolução, conferidas contra a anatomia. Prefira estas poses a gerar uma nova: cada pose nova precisa passar pelo checklist da seção 14.</p></div>
+    <div class="poses">
+      <div class="pose"><div class="ph"><img src="img/bia-acenando.webp" alt="BIA acenando" loading="lazy"></div><div class="t"><b>Acenando</b><span>Pose oficial. Boas-vindas, saudação.</span><span class="fn">bia-acenando.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-apresentando.webp" alt="BIA apresentando" loading="lazy"></div><div class="t"><b>Apresentando</b><span>Lockups e slides. A mão aponta para o conteúdo.</span><span class="fn">bia-apresentando.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-apontando.webp" alt="BIA apontando para cima" loading="lazy"></div><div class="t"><b>Apontando</b><span>Destaques, "olha isso", chamadas.</span><span class="fn">bia-apontando.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-joinha.webp" alt="BIA fazendo joinha" loading="lazy"></div><div class="t"><b>Joinha</b><span>Confirmação, tarefa concluída.</span><span class="fn">bia-joinha.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-comemorando.webp" alt="BIA comemorando com punhos para cima" loading="lazy"></div><div class="t"><b>Comemorando</b><span>Entregas, metas batidas, lançamentos.</span><span class="fn">bia-comemorando.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-pensando.webp" alt="BIA pensando com a mão no queixo" loading="lazy"></div><div class="t"><b>Pensando</b><span>Processando, dúvidas, FAQ.</span><span class="fn">bia-pensando.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-laptop.webp" alt="BIA segurando um notebook" loading="lazy"></div><div class="t"><b>No notebook</b><span>Produto, ferramentas, tutoriais.</span><span class="fn">bia-laptop.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-bracos-cruzados.webp" alt="BIA de braços cruzados" loading="lazy"></div><div class="t"><b>Braços cruzados</b><span>Confiança, segurança, governança.</span><span class="fn">bia-bracos-cruzados.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-sentada.webp" alt="BIA sentada acenando" loading="lazy"></div><div class="t"><b>Sentada</b><span>Para apoiar em bordas, letreiros e cenários.</span><span class="fn">bia-sentada.png</span></div></div>
+      <div class="pose"><div class="ph"><img src="img/bia-busto.webp" alt="Busto frontal da BIA" loading="lazy"></div><div class="t"><b>Busto frontal</b><span>Avatares, ícones, assinatura de e-mail.</span><span class="fn">bia-busto.png</span></div></div>
+    </div>
+    <h3 class="sub-h">Folha de poses original</h3>
+    <figure><img class="sheet" src="img/03-poses.webp" alt="Folha de seis poses da ficha original" width="1800" height="1208" loading="lazy"><figcaption>03-poses.png · referência de atuação da ficha v2</figcaption></figure>
+  </div>
+</section>
+
+<!-- 09 LOCKUPS -->
+<section id="lockups" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">09 — Lockups</span><h2>BIA Tech com o wordmark</h2>
+      <p class="lead">O lockup é a única forma aprovada de juntar a personagem e a marca numa assinatura. No horizontal, a BIA fica à direita e apresenta o wordmark com a mão. No vertical, o busto fica acima. Não monte combinações novas.</p></div>
+    <div class="lk">
+      <figure><img class="chk" src="img/p-lockup-horizontal-positivo.webp" alt="Lockup horizontal positivo" loading="lazy"><figcaption>Horizontal · positivo · PNG transparente</figcaption></figure>
+      <figure><img src="img/p-lockup-horizontal-negativo.webp" alt="Lockup horizontal negativo" loading="lazy"><figcaption>Horizontal · negativo · fundo #0A0A0A</figcaption></figure>
+      <figure><img src="img/p-lockup-horizontal-vermelho.webp" alt="Lockup horizontal sobre vermelho" loading="lazy"><figcaption>Horizontal · sobre vermelho · wordmark branco</figcaption></figure>
+    </div>
+    <div class="lk v" style="margin-top:14px">
+      <figure><img class="chk" src="img/p-lockup-vertical-positivo.webp" alt="Lockup vertical positivo" loading="lazy"><figcaption>Vertical · positivo</figcaption></figure>
+      <figure><img src="img/p-lockup-vertical-negativo.webp" alt="Lockup vertical negativo" loading="lazy"><figcaption>Vertical · negativo</figcaption></figure>
+      <figure><img src="img/p-lockup-vertical-vermelho.webp" alt="Lockup vertical sobre vermelho" loading="lazy"><figcaption>Vertical · sobre vermelho</figcaption></figure>
+    </div>
+
+    <h3 class="sub-h">Área de proteção</h3>
+    <div class="two">
+      <div class="cs">
+        <div class="box"><span class="zone"></span><img src="img/p-lockup-horizontal-positivo.webp" alt="Diagrama de área de proteção do lockup" loading="lazy"></div>
+        <span class="x" style="left:24px;top:50%">X</span><span class="x" style="right:24px;top:50%">X</span><span class="x" style="left:50%;top:18px">X</span><span class="x" style="left:50%;bottom:18px">X</span>
+      </div>
+      <div style="display:grid;gap:14px">
+        <p class="lead"><b style="color:#fff">X = altura do "b" do wordmark.</b> Deixe pelo menos 1X livre em volta do lockup inteiro, medido a partir da ponta da orelha, da mão estendida, da cauda e da sola das botas.</p>
+        <p class="muted">Nada de texto, ícone, borda de foto ou outro logo dentro dessa área. O endosso Bradesco, quando aparece, fica fora dela e segue a própria área de proteção de 2X.</p>
+      </div>
+    </div>
+
+    <h3 class="sub-h">Tamanhos mínimos</h3>
+    <div class="mins">
+      <div class="min"><span class="k">Lockup horizontal</span><div class="demo"><img src="img/p-lockup-horizontal-negativo.webp" alt="" style="width:180px;height:auto"></div><strong>180 px · 45 mm</strong><span class="muted small">de largura</span></div>
+      <div class="min"><span class="k">BIA corpo inteiro</span><div class="demo"><img src="img/bia-acenando.webp" alt="" style="height:96px;width:auto;margin-bottom:-24px"></div><strong>96 px · 25 mm</strong><span class="muted small">de altura. Abaixo disso, os óculos e o emblema somem.</span></div>
+      <div class="min"><span class="k">Busto / avatar</span><div class="demo"><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:32px;height:32px"></div><strong>32 px · 8 mm</strong><span class="muted small">de diâmetro.</span></div>
+      <div class="min"><span class="k">Abaixo de 32 px</span><div class="demo"><img src="img/simbolo-t.svg" alt="" style="width:20px;height:20px"></div><strong>Símbolo "t"</strong><span class="muted small">Favicon e ícones de 16 px usam o símbolo da marca, não a BIA.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 AVATARES -->
+<section id="avatares" class="light">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">10 — Avatares e ícones</span><h2>O busto frontal como rosto da marca</h2>
+      <p class="lead">Para perfil de Teams, Slack, bots, app e redes. O busto fica centralizado, com as orelhas dentro do círculo e o emblema Y visível embaixo. Use o fundo vermelho por padrão, o escuro em temas escuros e o claro sobre fotos.</p></div>
+    <div class="av">
+      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="Avatar circular vermelho" loading="lazy"><figcaption>Circular · vermelho (padrão)</figcaption></figure>
+      <figure><img src="img/p-avatar-circular-escuro.webp" alt="Avatar circular escuro" loading="lazy"><figcaption>Circular · escuro</figcaption></figure>
+      <figure><img src="img/p-avatar-circular-claro.webp" alt="Avatar circular claro" loading="lazy"><figcaption>Circular · claro</figcaption></figure>
+      <figure><img src="img/p-icone-app-1024.webp" alt="Ícone de app" loading="lazy"><figcaption>Ícone de app · 1024 px</figcaption></figure>
+      <figure><img src="img/p-perfil-quadrado-vermelho.webp" alt="Foto de perfil quadrada" loading="lazy"><figcaption>Perfil quadrado (corte automático)</figcaption></figure>
+    </div>
+    <h3 class="sub-h">Escala de redução</h3>
+    <div class="scale">
+      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:128px"><figcaption>128 px</figcaption></figure>
+      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:64px"><figcaption>64 px</figcaption></figure>
+      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:40px"><figcaption>40 px</figcaption></figure>
+      <figure><img src="img/p-avatar-circular-vermelho.webp" alt="" style="width:32px"><figcaption>32 px · mínimo</figcaption></figure>
+      <figure><img src="img/simbolo-t.svg" alt="" style="width:16px"><figcaption>16 px · símbolo</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 11 APLICAÇÕES -->
+<section id="aplicacoes" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">11 — Aplicações</span><h2>Fundos e peças prontas</h2>
+      <p class="lead">Composições já resolvidas para os usos mais comuns. Todas seguem o mesmo esquema: wordmark com descritor de um lado, BIA do outro, fundo em vermelho, preto com grade de terminal ou branco.</p></div>
+    <h3 class="sub-h">Fundos de Teams (1920 × 1080)</h3>
+    <div class="gal">
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-1-vermelho.webp" alt="Fundo Teams vermelho com símbolo Bradesco" loading="lazy"><figcaption>Vermelho com símbolo Bradesco · aprovado</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-2-branco.webp" alt="Fundo Teams branco" loading="lazy"><figcaption>Branco com símbolo vermelho</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-monumento.webp" alt="Fundo Teams monumento" loading="lazy"><figcaption>Monumento</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-biatech-terminal.webp" alt="Fundo Teams terminal" loading="lazy"><figcaption>Terminal</figcaption></figure>
+      <figure class="s2"><img src="img/p-fundo-teams-claro-minimo-1920x1080.webp" alt="Fundo Teams claro mínimo" loading="lazy"><figcaption>Claro mínimo · novo</figcaption></figure>
+      <figure class="s2"><img src="img/p-capa-apresentacao-1920x1080.webp" alt="Capa de apresentação" loading="lazy"><figcaption>Capa de apresentação 16:9 · novo</figcaption></figure>
+    </div>
+    <h3 class="sub-h">Papéis de parede, banner e assinatura</h3>
+    <div class="gal">
+      <figure><img src="img/p-wallpaper-desktop-terminal-2560x1440.webp" alt="Papel de parede terminal" loading="lazy"><figcaption>Desktop terminal · 2560 × 1440</figcaption></figure>
+      <figure><img src="img/p-wallpaper-desktop-vermelho-2560x1440.webp" alt="Papel de parede vermelho" loading="lazy"><figcaption>Desktop vermelho · 2560 × 1440</figcaption></figure>
+      <figure class="tall"><img src="img/p-wallpaper-celular-escuro-1179x2556.webp" alt="Papel de parede celular escuro" loading="lazy"><figcaption>Celular escuro</figcaption></figure>
+      <figure class="tall"><img src="img/p-wallpaper-celular-vermelho-1179x2556.webp" alt="Papel de parede celular vermelho" loading="lazy"><figcaption>Celular vermelho</figcaption></figure>
+      <figure class="s2" style="grid-column:span 4"><img src="img/p-banner-linkedin-1584x396.webp" alt="Banner LinkedIn" loading="lazy"><figcaption>Banner LinkedIn / capa de canal · 1584 × 396</figcaption><img src="img/p-assinatura-email-600x150.webp" alt="Assinatura de e-mail" loading="lazy" style="max-width:420px;margin-top:10px"><figcaption>Assinatura de e-mail · 600 × 150</figcaption></figure>
+    </div>
+    <h3 class="sub-h">Stickers para Teams e chat (512 px, PNG e WebP)</h3>
+    <div class="stk">
+      <img src="img/s-sticker-acenando.webp" alt="Sticker acenando" loading="lazy">
+      <img src="img/s-sticker-apresentando.webp" alt="Sticker apresentando" loading="lazy">
+      <img src="img/s-sticker-apontando.webp" alt="Sticker apontando" loading="lazy">
+      <img src="img/s-sticker-joinha.webp" alt="Sticker joinha" loading="lazy">
+      <img src="img/s-sticker-comemorando.webp" alt="Sticker comemorando" loading="lazy">
+      <img src="img/s-sticker-pensando.webp" alt="Sticker pensando" loading="lazy">
+      <img src="img/s-sticker-laptop.webp" alt="Sticker notebook" loading="lazy">
+      <img src="img/s-sticker-bracos-cruzados.webp" alt="Sticker braços cruzados" loading="lazy">
+      <img src="img/s-sticker-sentada.webp" alt="Sticker sentada" loading="lazy">
+      <img src="img/s-sticker-busto.webp" alt="Sticker busto" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- 12 VOZ -->
+<section id="voz" class="light">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">12 — Tom de voz</span><h2>Como a BIA fala</h2>
+      <p class="lead">Ela fala como uma colega engenheira experiente: em primeira pessoa, chamando a pessoa de "você", com frases curtas e termos técnicos só quando ajudam. Ela é uma IA e diz isso quando for relevante; nunca finge ser uma pessoa.</p></div>
+    <div class="say">
+      <div><span class="tag y">Assim</span>
+        <p class="quote">"Olá! Sou a BIA Tech, sua assistente inteligente. Em que posso ajudar hoje?"</p>
+        <p class="quote">"Encontrei 3 testes quebrando depois do último merge. Quer que eu mostre onde?"</p>
+        <p class="quote">"Não tenho certeza sobre isso. Vale confirmar com o time de arquitetura."</p>
+        <ul><li>Uma ideia por frase.</li><li>Verbos de ação: "revisei", "encontrei", "sugiro".</li><li>No máximo um emoji, e só em canais informais.</li></ul>
+      </div>
+      <div><span class="tag n">Assim não</span>
+        <p class="quote n">"Fala galera!!! 🚀🔥 Bora codar que a BIA resolve TUDO!"</p>
+        <p class="quote n">"Como especialista sênior, garanto que este código está 100% seguro."</p>
+        <p class="quote n">"Você esqueceu de novo o teste, hein? 🙄"</p>
+        <ul><li>Promessas absolutas ou garantias.</li><li>Gírias forçadas, caixa alta, excesso de exclamação.</li><li>Ironia ou bronca com a pessoa.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 USOS -->
+<section id="usos" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">13 — Usos corretos e incorretos</span><h2>O que pode e o que não pode</h2>
+      <p class="lead">Os três primeiros erros abaixo aconteceram de verdade em gerações com IA. Os demais são os deslizes mais comuns de diagramação.</p></div>
+    <div class="dd">
+      <figure><div class="st"><img src="img/bia-acenando.webp" alt="Uso correto: BIA original sobre fundo limpo" loading="lazy"></div><figcaption><span class="tag" style="color:var(--ok)">Correto</span>Arte oficial, fundo limpo, proporções intactas.</figcaption></figure>
+      <figure><div class="st" style="background:#CC092F"><img src="img/bia-joinha.webp" alt="Uso correto sobre vermelho" loading="lazy"></div><figcaption><span class="tag" style="color:var(--ok)">Correto</span>Sobre vermelho da marca, com gradiente e espaço em volta.</figcaption></figure>
+      <figure><div class="st" style="background:#0A0A0A"><img src="img/bia-laptop.webp" alt="Uso correto sobre preto" loading="lazy"></div><figcaption><span class="tag" style="color:var(--ok)">Correto</span>Sobre preto, no visual de terminal b.ia tech.</figcaption></figure>
+      <figure><div class="st" style="background:#fff"><img src="img/p-lockup-vertical-positivo.webp" alt="Uso correto: lockup oficial" loading="lazy" style="max-height:80%;align-self:center"></div><figcaption><span class="tag" style="color:var(--ok)">Correto</span>Lockup oficial, sem alterações.</figcaption></figure>
+
+      <figure class="bad"><div class="st"><img class="full" src="img/nao-3-bracos.webp" alt="Erro: terceira mão" loading="lazy"></div><figcaption><span class="tag n">Errado</span>Terceiro braço ou mão extra. Conte sempre: 2 braços, 4 dedos + polegar.</figcaption></figure>
+      <figure class="bad"><div class="st"><img class="full" src="img/nao-olho-azul.webp" alt="Erro: olho azul" loading="lazy" style="object-position:50% 18%"></div><figcaption><span class="tag n">Errado</span>Olho azul atrás do HUD. Os dois olhos são castanhos.</figcaption></figure>
+      <figure class="bad"><div class="st"><img src="img/nao-fora-do-modelo.webp" alt="Erro: personagem fora do modelo" loading="lazy"></div><figcaption><span class="tag n">Errado</span>Fora do modelo: corpo adulto, pernas longas, óculos trocados.</figcaption></figure>
+      <figure class="bad"><div class="st"><img src="img/bia-acenando.webp" alt="Erro: personagem esticada" loading="lazy" style="transform:scaleX(1.45)"></div><figcaption><span class="tag n">Errado</span>Esticar, achatar ou distorcer.</figcaption></figure>
+
+      <figure class="bad"><div class="st"><img src="img/bia-acenando.webp" alt="Erro: cores alteradas para laranja" loading="lazy" style="filter:hue-rotate(28deg) saturate(1.5)"></div><figcaption><span class="tag n">Errado</span>Recolorir. Laranja é cor de concorrente.</figcaption></figure>
+      <figure class="bad"><div class="st"><img src="img/bia-acenando.webp" alt="Erro: imagem espelhada" loading="lazy" style="transform:scaleX(-1)"></div><figcaption><span class="tag n">Errado</span>Espelhar. O HUD e o crachá trocam de lado.</figcaption></figure>
+      <figure class="bad"><div class="st" style="background:repeating-conic-gradient(#F28C28 0 15deg,#2B6CB0 15deg 30deg)"><img src="img/bia-acenando.webp" alt="Erro: fundo poluído" loading="lazy"></div><figcaption><span class="tag n">Errado</span>Fundo poluído ou com cores fora da paleta.</figcaption></figure>
+      <figure class="bad"><div class="st"><span class="fakelogo">BIA TECH®</span><img src="img/bia-acenando.webp" alt="Erro: logo inventado" loading="lazy" style="filter:drop-shadow(0 0 0 #000) drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 6px 10px rgba(0,0,0,.6))"></div><figcaption><span class="tag n">Errado</span>Inventar logo "BIA Tech" ou pôr contorno e sombra pesados.</figcaption></figure>
+    </div>
+    <p class="muted small" style="margin-top:20px;max-width:75ch">Também é proibido: tirar os óculos, remover a mecha ou o emblema, trocar o figurino, pôr logos de terceiros em objetos, girar a personagem, cortar a cabeça ou os olhos, e usar a BIA sobre o símbolo Bradesco de forma que pareça segurá-lo ou alterá-lo.</p>
+  </div>
+</section>
+
+<!-- 14 PRODUÇÃO -->
+<section id="producao" class="white">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">14 — Produção com IA</span><h2>Como gerar uma BIA nova sem perder o modelo</h2>
+      <p class="lead">O padrão de mercado em 2026 para mascote 3D é gerar com modelos de imagem multi-referência ancorados na ficha oficial, e não com treino próprio (LoRA), que só compensa a partir de centenas de peças. Em 06/11/2026 comparamos os modelos atuais na mesma pose; o GPT Image 2.6 Sunburst foi o mais fiel.</p></div>
+    <ol class="steps">
+      <li><b>Referências</b><span class="muted">Retrato oficial, turnaround, folha de poses e close do rosto, em JPEG até 1600 px, nessa ordem.</span></li>
+      <li><b>Prompt mestre</b><span class="muted">Cole o texto abaixo e descreva só a cena. Sempre fundo liso cinza-claro se a ideia é recortar.</span></li>
+      <li><b>Geração</b><span class="muted">GPT Image 2.6 Sunburst (edit, no fal), 1024 × 1536, qualidade alta. Cerca de US$ 0,08 por imagem.</span></li>
+      <li><b>Acabamento</b><span class="muted">SeedVR2 para ampliar 2× e BiRefNet v2 para recortar o fundo com o pelo.</span></li>
+      <li><b>Aprovação</b><span class="muted">Checklist abaixo, conferido com zoom. Se falhar um item, gere de novo; não retoque à mão.</span></li>
+    </ol>
+    <div class="two" style="margin-top:40px">
+      <div style="display:grid;gap:14px">
+        <h3 style="font-size:20px">Checklist de aprovação</h3>
+        <ul class="qa">
+          <li>Exatamente 2 braços e 2 mãos</li><li>4 dedos + polegar em cada mão</li>
+          <li>Os dois olhos castanhos</li><li>HUD ciano sobre o olho direito dela</li>
+          <li>Crachá amarelo no peito esquerdo dela</li><li>Mecha branca e orelhas de ponta escura</li>
+          <li>Cabeça ≈ 1/3 da altura</li><li>Emblema Y hexagonal ciano</li>
+          <li>3D com pelo, nunca 2D</li><li>Nenhum logo ou texto inventado</li>
+        </ul>
+      </div>
+      <div style="display:grid;gap:12px">
+        <h3 style="font-size:20px">Prompt mestre</h3>
+        <pre class="code" id="pm">The attached images are references of the same character, "BIA Tech", an anthropomorphic female red fox mascot in high-end 3D animated feature film style (soft realistic fur, Pixar-like 3D render, NOT 2D, NOT flat illustration). Image 1 is the official hero portrait and Image 2 the official turnaround: match her proportions exactly (big head about one third of the body height, short cute stature, very large ears, big eyes). Image 3 is the official pose sheet and Image 4 a face close-up.
+Mandatory design: spiky white tuft on top of the head, large dark-tipped ears with white inner fur, black thick-frame safety goggles with one transparent slightly red-tinted lens, thin glowing cyan HUD code lines floating on the lens over her right eye (no blue panel behind them), BOTH eyes the same warm BROWN (big brown irises, black pupils, white catchlights), clearly visible through the lens, small black nose, white muzzle, cheeks and chest fur, navy high-collar jacket with red lining, white-grey armored chest plate with a glowing cyan hexagonal emblem containing a "Y" shaped symbol, small yellow badge on her left chest, grey shoulder pads with a red dot, red fur on the upper arms, grey forearm bracers, black fingerless gloves with pale pink finger pads, dark grey mesh jumpsuit at the waist, ochre utility belt with rectangular buckle and pouches, navy pants, ochre hexagonal knee pads, big rounded white-grey boots, big fluffy red tail with white tip.
+EYE RULE: both eyes are brown; the eye behind the HUD is brown too, never blue.
+ANATOMY RULE: EXACTLY TWO ARMS and TWO HANDS, each hand with four fingers plus thumb. Never a third arm or extra hand.
+She is the brand: never add a separate "BIA Tech" logo, and no third-party brand logos on objects.
+SCENE: &lt;descreva a cena aqui&gt;</pre>
+        <button class="copy" id="cp" type="button">Copiar prompt</button>
+      </div>
+    </div>
+    <h3 class="sub-h">Teste de modelos · mesma pose, mesmas referências</h3>
+    <figure><img src="img/comparativo.webp" alt="Comparativo: Nano Banana 2.1 na linha de cima, GPT Image 2.6 na de baixo" loading="lazy"><figcaption>Linha de cima: Nano Banana 2.1 (pernas mais longas, corpo esguio). Linha de baixo: GPT Image 2.6 Sunburst (proporção da ficha). O Nano Banana Pro saiu fora do modelo em corpo inteiro (ver seção 13).</figcaption></figure>
+    <p class="muted small" style="margin-top:18px;max-width:75ch">Para vídeo, use estas poses como primeiro quadro em modelos imagem-para-vídeo e confira o mesmo checklist quadro a quadro nos trechos em que ela gira o corpo. Para a BIA falando, use o busto frontal como referência de avatar.</p>
+  </div>
+</section>
+
+<!-- 15 ARQUIVOS -->
+<section id="arquivos" class="dark grid">
+  <div class="wrap">
+    <div class="sec-h"><span class="lab">15 — Arquivos e governança</span><h2>O pacote e quem cuida dele</h2>
+      <p class="lead">Todas as peças deste manual estão no pacote, em alta resolução. Use sempre os arquivos do pacote em vez de copiar imagens desta página.</p></div>
+    <div class="two">
+<div class="tree"><b>brandbook-bia-tech/</b>
+├─ <b>01-lockups/</b>      6 PNG · horizontal e vertical
+│                    positivo, negativo, vermelho
+├─ <b>02-avatares/</b>     5 PNG · circular ×3, app, perfil
+├─ <b>03-fundos/</b>       7 PNG · desktop, celular, capa,
+│  │                 banner, assinatura de e-mail
+│  └─ <b>teams/</b>        5 · fundos de webcam 1920×1080
+├─ <b>04-stickers/</b>     10 PNG + 10 WebP · 512 px
+├─ <b>05-personagem/</b>
+│  ├─ <b>poses-recortadas/</b> 10 PNG transparentes
+│  ├─ <b>fichas/</b>       turnaround, expressões, poses,
+│  │                 detalhes, retrato oficial
+│  ├─ bia-tech.json  traços, paleta, não-fazer
+│  └─ prompt-mestre.txt
+└─ <b>06-marca/</b>        wordmark b.ia tech SVG ×3</div>
+      <div class="tbl"><table>
+        <tr><th>Versão</th><td>1.0 · 06.11.2026</td></tr>
+        <tr><th>Base</th><td>Ficha de personagem v2 (aprovada em 29.09.2026) e Manual de Identidade b.ia tech 2026</td></tr>
+        <tr><th>Marca-mãe</th><td>Brandbook Bradesco (set/2026)</td></tr>
+        <tr><th>Peça nova</th><td>Passa pelo checklist da seção 14 e pela aprovação da equipe b.ia tech antes de circular</td></tr>
+        <tr><th>Mudanças na personagem</th><td>Só com nova versão deste manual. Figurinos sazonais (Natal, eventos) e o capacete amarelo de obra são acessórios de cena sobre o figurino base, que continua visível.</td></tr>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<footer class="dark foot">
+  <div class="wrap">
+    <img src="img/biatech-negativo.svg" alt="b.ia tech">
+    <span class="lab" style="color:var(--t-d3)">Brandbook do mascote · Bradesco Inteligência Artificial · 2026</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('cp').addEventListener('click',function(){
+  var b=this,t=document.getElementById('pm').innerText;
+  function ok(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar prompt'},1800)}
+  function fb(){var r=document.createRange();r.selectNodeContents(document.getElementById('pm'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Texto selecionado'}
+  try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
+});
+</script>
+</html>

@@ -1,0 +1,69 @@
+{
+  "nome": "BIA Tech",
+  "papel": "Assistente inteligente e a própria marca (não existe logo separado; a mascote é o logo)",
+  "especie": "Raposa-vermelha antropomórfica, fêmea",
+  "estilo": "3D de longa-metragem de animação (tipo Pixar), pelo macio e realista, proporções fofas",
+  "proporcoes": "Cabeça grande, cerca de 1/3 da altura total; orelhas enormes (quase metade da altura da cabeça); olhos grandes; corpo baixo e compacto; botas grandes e arredondadas; cauda quase do tamanho do corpo",
+  "anatomia_obrigatoria": "Exatamente 2 braços e 2 mãos; cada mão com 4 dedos + polegar, almofadas rosa-claro, garras escuras curtas",
+  "tracos_obrigatorios": [
+    "Topete/mecha branca espetada no alto da cabeça",
+    "Orelhas grandes com pontas escuras e interior branco",
+    "Óculos de proteção com armação preta grossa, lente única levemente avermelhada e transparente, linhas finas de HUD ciano (código) sobre o lado do olho direito dela, sem painel azul por trás",
+    "Os DOIS olhos são marrons (castanho quente), iguais, grandes, visíveis através da lente; o HUD não muda a cor do olho",
+    "Focinho, bochechas e peito brancos; nariz preto pequeno",
+    "Gola alta azul-marinho com forro vermelho",
+    "Peitoral branco-acinzentado tipo armadura leve, emblema hexagonal ciano brilhante com símbolo em 'Y' no centro",
+    "Crachá amarelo pequeno no peito esquerdo dela",
+    "Ombreiras cinza com ponto vermelho; braços com pelo vermelho",
+    "Braçadeiras cinza nos antebraços; luvas pretas sem dedos",
+    "Macacão cinza-escuro de malha na cintura; cinto ocre com fivela retangular e bolsas; ferramentas vermelhas",
+    "Calça azul-marinho; joelheiras hexagonais ocre com centro cinza",
+    "Botas grandes branco-acinzentadas arredondadas",
+    "Cauda grande e fofa, vermelha com ponta branca"
+  ],
+  "paleta_aproximada": {
+    "pelo_vermelho_coral": "#E06A5E",
+    "pelo_sombra": "#9E3133",
+    "pelo_branco": "#EDE8E6",
+    "ponta_orelha": "#3E232B",
+    "armacao_oculos": "#211D2D",
+    "lente_tom": "#8A3F4E",
+    "brilho_ciano_emblema_hud": "#76DBE4",
+    "nariz": "#372630",
+    "jaqueta_navy": "#1B2140",
+    "forro_vermelho": "#C8323F",
+    "armadura": "#D5D0D2",
+    "cracha_amarelo": "#EFD084",
+    "ponto_ombro": "#F02F45",
+    "luva": "#323040",
+    "macacao": "#403B4B",
+    "calca_navy": "#3A3B52",
+    "ocre_cinto_bolsas_joelheiras": "#C08A4E",
+    "bota": "#CFC6C5",
+    "iris_marrom_ambos_olhos": "#8A4B24"
+  },
+  "acessorios_de_cena": [
+    "Capacete amarelo de obra (cenas de reparo)",
+    "Notebook, tablet, chave de fenda (sem marcas de terceiros)"
+  ],
+  "nao_fazer": [
+    "Terceiro braço ou mão extra (erro da ref bia-corpo-inteiro.png)",
+    "Olho azul ou olhos de cores diferentes (o olho atrás do HUD também é marrom)",
+    "Tirar os óculos ou trocar por óculos comuns",
+    "Remover a mecha branca ou o emblema do peito",
+    "Estilo 2D chapado, anime ou realista fotográfico",
+    "Corpo adulto/alto e esguio; roupa toda azul sem armadura",
+    "Logos de terceiros (Apple etc.) em objetos",
+    "Inventar um logo 'BIA Tech' separado: a mascote é a marca"
+  ],
+  "arquivos_canonicos": {
+    "retrato_oficial": "ficha/05-retrato-oficial.png",
+    "turnaround": "ficha/01-turnaround.png",
+    "expressoes": "ficha/02-expressoes.png",
+    "poses": "ficha/03-poses.png",
+    "detalhes": "ficha/04-detalhes.png",
+    "frame_video": "refs/bia-video-frame-06s.png",
+    "rosto": "refs/bia-rosto-recorte.png"
+  },
+  "versao": "v2 (2026-09-29): dois olhos marrons, pedido do João"
+}
