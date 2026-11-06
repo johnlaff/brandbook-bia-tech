@@ -40,18 +40,28 @@ section{padding-block:96px}
 .mono{font-family:var(--f-mono)}
 .rule{width:44px;height:3px;background:var(--red)}
 /* nav */
+section[id]{scroll-margin-top:var(--navh,53px)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,10,10,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-d)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
-.nav .wrap{display:flex;gap:22px;align-items:center;height:52px}
+.nav .wrap{display:flex;gap:22px;align-items:center;height:52px;max-width:none;padding-inline:clamp(16px,2.5vw,32px)}
 .nav img{height:18px;width:auto;flex:none}
-.nav ol{display:flex;gap:18px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font:500 12px var(--f-sans);letter-spacing:.08em;text-transform:uppercase;min-width:0}
+.nav ol{display:flex;gap:16px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;white-space:nowrap;font:500 12px var(--f-sans);letter-spacing:.08em;text-transform:uppercase;min-width:0;flex:1 1 auto}
 .nav ol::-webkit-scrollbar{display:none}
+.nav ol.ovr-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 48px),transparent)}
+.nav ol.ovr-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px);mask-image:linear-gradient(90deg,transparent,#000 48px)}
+.nav ol.ovr-l.ovr-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent);mask-image:linear-gradient(90deg,transparent,#000 48px,#000 calc(100% - 48px),transparent)}
+.nav a.on{color:var(--t-d);box-shadow:inset 0 -2px 0 var(--red)}
+.nav ol a{display:inline-block;padding:17px 0 15px}
+.nav .nv-btn{display:none;flex:none;width:28px;height:28px;border:1px solid var(--line-d);border-radius:50%;background:transparent;color:var(--t-d);cursor:pointer;font:600 14px/1 var(--f-sans);margin-left:auto}
+.nav.ovr .nv-btn{display:grid;place-items:center}
 .nav a{text-decoration:none;color:var(--t-d3)}
 .nav a:hover,.nav a:focus-visible{color:var(--t-d)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
 /* capa */
-.cover{position:relative;overflow:hidden;background:#0A0A0A;min-height:min(92vh,860px);display:flex;align-items:center}
+.cover{position:relative;overflow:hidden;background:#0A0A0A;min-height:calc(100vh - var(--navh,53px));min-height:calc(100svh - var(--navh,53px));display:flex;align-items:center}
 .cover-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 50%}
+@media (min-width:761px){.cover-bg{object-position:100% 50%}.cover.wide .cover-bg{object-fit:contain}}
 .cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0A0A0A 0%,rgba(10,10,10,.85) 30%,rgba(10,10,10,0) 60%);pointer-events:none}
 .cover .wrap{position:relative;z-index:1;width:100%}
 .cover-tx{display:grid;gap:22px;max-width:560px;padding-block:96px}
@@ -144,7 +154,7 @@ figcaption{font-size:13px;color:var(--t-l2)}
 .min .demo{height:112px;display:flex;align-items:center;gap:12px;overflow:hidden}
 .min strong{font-size:22px;letter-spacing:-.02em}
 /* avatares */
-.av{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:end}
+.av{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:start}
 .scale{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;padding:24px;background:var(--white);border:1px solid var(--line-l)}
 .scale figure{justify-items:center}
 .scale figcaption{font:11px var(--f-mono)}
@@ -153,6 +163,11 @@ figcaption{font-size:13px;color:var(--t-l2)}
 .gal figure{grid-column:span 3}
 .gal figure.s2{grid-column:span 2}
 .gal figure.tall{grid-column:span 1}
+.gal .note{grid-column:span 4;align-self:start;border:1px solid var(--line-d);background:var(--ink-2);padding:24px 26px;display:flex;flex-direction:column;gap:12px;font-size:14px;line-height:1.6;color:var(--t-d2)}
+.gal .note.n3{grid-column:span 3}
+.gal .note h4{margin:0;font:600 15px var(--f-sans);color:var(--t-d)}
+.gal .note ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.gal .note .k{font:500 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
 .gal img{width:100%;border:1px solid var(--line-d)}
 .stk{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;background:#2B2B33;padding:24px}
 /* voz */
@@ -189,6 +204,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
 /* arquivos */
 .tree{font:13.5px/1.9 var(--f-mono);color:var(--t-d2);background:var(--ink-2);border:1px solid var(--line-d);padding:22px;overflow-x:auto;white-space:pre}
 .tree b{color:var(--t-d);font-weight:500}
+@media (max-width:480px){.tree{font-size:10px;line-height:1.8;padding:14px 12px}}
 .foot{padding-block:56px;border-top:1px solid var(--line-d)}
 .foot .wrap{display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;justify-content:space-between}
 .foot img{height:26px;width:auto}
@@ -205,6 +221,7 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
   .stk{grid-template-columns:repeat(3,1fr)}
   .gal figure,.gal figure.s2{grid-column:span 6}
   .gal figure.tall{grid-column:span 3}
+  .gal .note,.gal .note.n3{grid-column:span 6}
 }
 @media (max-width:560px){
   section{padding-block:64px}
@@ -233,11 +250,12 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
       <li><a href="#avatares">Avatares</a></li>
       <li><a href="#aplicacoes">Aplicações</a></li>
       <li><a href="#voz">Voz</a></li>
-      <li><a href="#movimento">Movimento e acesso</a></li>
-      <li><a href="#usos">Certo e errado</a></li>
-      <li><a href="#producao">Produção com IA</a></li>
+      <li><a href="#movimento">Movimento</a></li>
+      <li><a href="#usos">Usos</a></li>
+      <li><a href="#producao">Produção</a></li>
       <li><a href="#arquivos">Arquivos</a></li>
     </ol>
+    <button class="nv-btn" type="button" aria-label="Mais seções">›</button>
   </div>
 </nav>
 
@@ -541,10 +559,25 @@ pre.code{margin:0;background:var(--ink);color:var(--t-d2);font:12.5px/1.7 var(--
       <figure><img src="img/p-wallpaper-desktop-vermelho-2560x1440.webp" alt="Papel de parede vermelho" loading="lazy"><figcaption>Desktop vermelho · 2560 × 1440</figcaption></figure>
       <figure class="tall"><img src="img/p-wallpaper-celular-escuro-1179x2556.webp" alt="Papel de parede celular escuro" loading="lazy"><figcaption>Celular escuro · 1179 × 2556</figcaption></figure>
       <figure class="tall"><img src="img/p-wallpaper-celular-vermelho-1179x2556.webp" alt="Papel de parede celular vermelho" loading="lazy"><figcaption>Celular vermelho · 1179 × 2556</figcaption></figure>
+      <div class="note"><span class="k">Como usar</span>
+        <ul>
+          <li><b>Windows:</b> clique com o botão direito no arquivo e escolha "Definir como plano de fundo da área de trabalho". Em monitores 16:9 use o ajuste "Preencher".</li>
+          <li><b>iPhone e Android:</b> abra a imagem e use "Usar como papel de parede". A arte deixa o topo livre para o relógio.</li>
+          <li>Use só os arquivos do pacote, em 2560 × 1440 e 1179 × 2556. Não aplique filtro, zoom nem texto por cima.</li>
+        </ul>
+      </div>
     </div>
     <h3 class="sub-h">Apresentação</h3>
     <div class="gal">
       <figure><img src="img/p-capa-apresentacao-1920x1080.webp" alt="Capa de apresentação vermelha com a BIA segurando um notebook" loading="lazy"><figcaption>Capa 16:9 · 1920 × 1080 · troque título e subtítulo</figcaption></figure>
+      <div class="note n3"><span class="k">Como usar</span>
+        <ul>
+          <li>Use a imagem como fundo do primeiro slide (PowerPoint: Design &gt; Formatar plano de fundo &gt; Imagem).</li>
+          <li>Título em DM Sans Bold branco, no máximo duas linhas, alinhado à esquerda na área livre. Subtítulo com área e data logo abaixo.</li>
+          <li>O texto nunca passa por cima da BIA nem do logo Bradesco. Se o título for longo, diminua a fonte; não mova a arte.</li>
+          <li>Slides internos usam fundo liso (branco, off-white ou preto) com o wordmark no rodapé; a BIA aparece só onde ajuda a explicar.</li>
+        </ul>
+      </div>
     </div>
     <h3 class="sub-h">Redes e e-mail</h3>
     <div class="gal">
@@ -682,22 +715,22 @@ SCENE: &lt;descreva a cena aqui&gt;</pre>
       <p class="lead">Todas as peças deste manual estão no pacote, em alta resolução. Use sempre os arquivos do pacote em vez de copiar imagens desta página.</p></div>
     <div class="two">
 <div class="tree"><b>brandbook-bia-tech/</b>
-├─ <b>01-lockups/</b>           6 PNG · horizontal e vertical
-│                         positivo, negativo, vermelho
-├─ <b>02-icones-e-avatares/</b>  ícone de app, perfil, 3 avatares,
-│                         favicons 16 a 512 px + .ico
+├─ <b>01-lockups/</b>           6 PNG · horizontal
+│                         e vertical, 3 fundos
+├─ <b>02-icones-e-avatares/</b>  ícone de app, perfil,
+│                         3 avatares, favicons
 ├─ <b>03-fundos-teams/</b>       5 JPG · 1920 × 1080
 ├─ <b>04-papeis-de-parede/</b>   desktop ×2, celular ×2
 ├─ <b>05-apresentacao/</b>       capa 16:9
-├─ <b>06-redes-e-email/</b>      banner LinkedIn, assinatura
-├─ <b>07-stickers/</b>           10 PNG + 10 WebP · 512 px
+├─ <b>06-redes-e-email/</b>      banner, assinatura
+├─ <b>07-stickers/</b>           10 PNG + 10 WebP
 ├─ <b>08-personagem/</b>
 │  ├─ <b>poses-recortadas/</b>  10 PNG transparentes
-│  ├─ <b>fichas/</b>            turnaround, expressões, poses,
-│  │                      detalhes, retrato oficial
-│  ├─ bia-tech.json       traços, paleta, não-fazer
+│  ├─ <b>fichas/</b>            turnaround, poses,
+│  │                      expressões, detalhes
+│  ├─ bia-tech.json       traços e paleta
 │  └─ prompt-mestre.txt
-└─ <b>09-marca/</b>              wordmark b.ia tech SVG ×3</div>
+└─ <b>09-marca/</b>              wordmark SVG ×3</div>
       <div class="tbl"><table>
         <tr><th>Versão</th><td>2.0 · 06.11.2026</td></tr>
         <tr><th>Base</th><td>Ficha de personagem v2 (aprovada em 29.09.2026) e Manual de Identidade b.ia tech 2026</td></tr>
@@ -724,3 +757,11 @@ document.getElementById('cp').addEventListener('click',function(){
   try{navigator.clipboard.writeText(t).then(ok,fb)}catch(e){fb()}
 });
 </script>
+<script>(function(){var c=document.querySelector('.cover'),n=document.querySelector('.nav'),ol=n&&n.querySelector('ol');
+function f(){if(n)document.documentElement.style.setProperty('--navh',n.getBoundingClientRect().height+'px');if(c){var r=c.getBoundingClientRect();c.classList.toggle('wide',r.width/r.height>=16/9)}
+if(ol){var o=ol.scrollWidth>ol.clientWidth+2;n.classList.toggle('ovr',o);ol.classList.toggle('ovr-r',o&&ol.scrollLeft+ol.clientWidth<ol.scrollWidth-2);ol.classList.toggle('ovr-l',o&&ol.scrollLeft>2)}}
+f();addEventListener('resize',f);addEventListener('load',f);if(ol)ol.addEventListener('scroll',f,{passive:true});if(window.ResizeObserver&&c)new ResizeObserver(f).observe(c);
+var bt=n&&n.querySelector('.nv-btn');if(bt)bt.addEventListener('click',function(){var end=ol.scrollLeft+ol.clientWidth>=ol.scrollWidth-4;ol.scrollBy({left:end?-ol.scrollWidth:ol.clientWidth*.7,behavior:'smooth'})});
+if(ol&&'IntersectionObserver'in window){var L={};ol.querySelectorAll('a').forEach(function(a){L[a.getAttribute('href').slice(1)]=a});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var a=L[e.target.id];if(!a)return;ol.querySelectorAll('a.on').forEach(function(x){x.classList.remove('on')});a.classList.add('on');var lr=a.getBoundingClientRect(),orr=ol.getBoundingClientRect();if(lr.left<orr.left+40||lr.right>orr.right-40)ol.scrollTo({left:a.offsetLeft-ol.offsetLeft-ol.clientWidth/2+a.offsetWidth/2,behavior:'smooth'})}})},{rootMargin:'-45% 0px -50% 0px'});
+Object.keys(L).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)})}})();</script>
