@@ -4,6 +4,8 @@
 
 Modelo 3D da BIA Tech com esqueleto, animações e expressões, feito a partir do turnaround e do retrato oficial (`08-personagem/fichas/`). As vistas, as animações e as regras de uso estão na seção 16 do manual (`brandbook-html/index.html`).
 
+Para ver o modelo no navegador, sem instalar nada, abra o visualizador em [`visualizador-3d/`](../visualizador-3d/LEIAME.md).
+
 ## Arquivos
 
 | Arquivo | Para que serve | Tamanho |
