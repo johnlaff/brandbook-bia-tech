@@ -4,10 +4,10 @@
 #   Venceu o Nano Banana 2.1 em proporção (cabeça = 1/3), botas e lado do HUD. Nano Banana Pro saiu fora do modelo em corpo inteiro.
 #   No OpenRouter o GPT Image 2.6 só roda em /api/v1/images, que ignora as referências: usar o fal.
 # Pós: SeedVR2 2x (fal-ai/seedvr/upscale/image) + recorte BiRefNet v2 Heavy (fal-ai/birefnet/v2).
-# QA obrigatório: 2 braços, 4 dedos + polegar, os 2 olhos castanhos, HUD sobre o olho direito DELA, crachá no peito esquerdo dela, sem logos, 3D.
+# QA obrigatório: 2 braços, 3 dedos + polegar, os 2 olhos castanhos, HUD sobre o olho direito DELA, crachá no peito esquerdo dela, sem logos, 3D.
 The attached images are references of the same character, "BIA Tech", an anthropomorphic female red fox mascot in high-end 3D animated feature film style (soft realistic fur, Pixar-like 3D render, NOT 2D, NOT flat illustration). Image 1 is the official hero portrait and Image 2 the official turnaround: match her proportions exactly (big head about one third of the body height, short cute stature, very large ears, big eyes). Image 3 is the official pose sheet and Image 4 a face close-up.
 Mandatory design: spiky white tuft on top of the head, large dark-tipped ears with white inner fur, black thick-frame safety goggles with one transparent slightly red-tinted lens, thin glowing cyan HUD code lines floating on the lens over her right eye (no blue panel behind them), BOTH eyes the same warm BROWN (big brown irises, black pupils, white catchlights), clearly visible through the lens, small black nose, white muzzle, cheeks and chest fur, navy high-collar jacket with red lining, white-grey armored chest plate with a glowing cyan hexagonal emblem containing a "Y" shaped symbol, small yellow badge on her left chest, grey shoulder pads with a red dot, red fur on the upper arms, grey forearm bracers, black fingerless gloves with pale pink finger pads, dark grey mesh jumpsuit at the waist, ochre utility belt with rectangular buckle and pouches, navy pants, ochre hexagonal knee pads, big rounded white-grey boots, big fluffy red tail with white tip.
 EYE RULE: both eyes are brown; the eye behind the HUD is brown too, never blue.
-ANATOMY RULE: EXACTLY TWO ARMS and TWO HANDS, each hand with four fingers plus thumb. Never a third arm or extra hand.
+ANATOMY RULE: EXACTLY TWO ARMS and TWO HANDS, each hand with three fingers plus thumb (four digits in total). Never a third arm or extra hand.
 She is the brand: never add a separate "BIA Tech" logo, and no third-party brand logos on objects.
 SCENE: <descrever a cena aqui>

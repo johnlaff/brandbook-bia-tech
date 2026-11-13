@@ -2,9 +2,9 @@
 
 # Brandbook BIA Tech
 
-Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech** (Bradesco Inteligência Artificial). Aqui está tudo o que o time precisa para usar a personagem do jeito certo: regras, lockups, avatares, fundos do Teams, papéis de parede, stickers e as artes-base para gerar peças novas.
+Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech** (Bradesco Inteligência Artificial). Aqui está tudo o que o time precisa para usar a personagem do jeito certo: regras, lockups, avatares, fundos do Teams, papéis de parede, stickers, as artes-base para gerar peças novas e o modelo 3D da personagem.
 
-`Versão 2.0` · `06/11/2026` · `Uso interno`
+`Versão 2.1` · `13/11/2026` · `Uso interno`
 
 ## Sumário
 
@@ -15,15 +15,16 @@ Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech**
 - [Regras essenciais](#regras-essenciais)
 - [Como aplicar as peças mais pedidas](#como-aplicar-as-peças-mais-pedidas)
 - [Criar artes novas da BIA](#criar-artes-novas-da-bia)
+- [Modelo 3D](#modelo-3d)
 - [Histórico de versões](#histórico-de-versões)
 
 ## Começo rápido
 
 1. Na página do repositório, clique em **Code → Download ZIP** e descompacte em qualquer pasta.
 2. Abra `brandbook-html/index.html` com dois cliques. Ele abre no navegador, sem instalar nada.
-3. Use o botão de download de cada peça no próprio manual, ou pegue os arquivos direto nas pastas `01` a `09`.
+3. Use o botão de download de cada peça no próprio manual, ou pegue os arquivos direto nas pastas `01` a `10`.
 
-> Prefere o terminal? `git clone https://github.com/johnlaff/brandbook-bia-tech.git` funciona igual. O repositório tem cerca de 230 MB, então o ZIP costuma ser mais rápido.
+> Prefere o terminal? `git clone https://github.com/johnlaff/brandbook-bia-tech.git` funciona igual. O repositório tem cerca de 370 MB, então o ZIP costuma ser mais rápido.
 
 ## Como abrir o brandbook (HTML)
 
@@ -59,6 +60,7 @@ O manual é uma página única em `brandbook-html/index.html`. Ele mostra cada r
 | `07-stickers/` | 10 stickers de chat com legenda: Bom dia, Valeu, Top, Bora, Deploy feito, Entendi, Hmm, Ops, Reunião, Até | PNG e WebP 512x512 (< 100 KB) |
 | `08-personagem/` | Poses recortadas, fichas oficiais (turnaround, expressões, poses, detalhes, retrato), `bia-tech.json` e `prompt-mestre.txt` | PNG transparente, JSON, TXT |
 | `09-marca/` | Wordmark b.ia tech | SVG (positivo, negativo, branco) |
+| `10-modelo-3d/` | Modelo 3D da BIA (Prévia 5.5.3), com esqueleto, 8 animações e 11 expressões: arquivo do Blender com as texturas, GLB completo e GLB leve para web | BLEND, PNG, GLB |
 
 ## Qual arquivo usar em cada situação
 
@@ -74,6 +76,8 @@ O manual é uma página única em `brandbook-html/index.html`. Ele mostra cada r
 | Reagir no chat | `07-stickers/` (WebP no WhatsApp, PNG no Teams) |
 | Ilustrar um slide com a BIA | `08-personagem/poses-recortadas/` |
 | Só o nome da marca, sem a personagem | `09-marca/biatech-*.svg` |
+| Animar a BIA ou fazer um render novo em 3D | `10-modelo-3d/bia-tech.blend` (Blender 5.3 ou mais novo) |
+| A BIA em 3D num site, app ou motor de jogo | `10-modelo-3d/bia-tech-web.glb` (web) ou `10-modelo-3d/bia-tech.glb` |
 
 ## Regras essenciais
 
@@ -83,7 +87,7 @@ O detalhe completo está no manual. Estas são as que mais se perdem:
 - **Hierarquia:** Bradesco > b.ia tech > BIA Tech. A BIA aparece sempre ao lado do wordmark b.ia tech, nunca no lugar dele. O endosso Bradesco fica fora da área de proteção e segue a própria área de 2X.
 - **Área de proteção:** 1X ao redor do lockup, em que X é a altura do "b" do wordmark.
 - **Tamanho mínimo:** lockup com 180 px, corpo inteiro com 96 px, avatar com 32 px. Abaixo disso, use o favicon do rosto.
-- **Anatomia:** sempre 2 braços, 4 dedos + polegar e os dois olhos castanhos. O HUD ciano fica só sobre o olho direito dela.
+- **Anatomia:** sempre 2 braços, 3 dedos + polegar e os dois olhos castanhos. O HUD ciano fica só sobre o olho direito dela.
 - **Não faça:** espelhar, esticar, recolorir, inventar um logo "BIA Tech" ou tirar os óculos da BIA. Em incidentes, comunicados regulatórios e más notícias, use só o wordmark.
 
 ## Como aplicar as peças mais pedidas
@@ -129,10 +133,27 @@ Toda arte nova parte das referências oficiais, para a personagem não sair do m
 
 `bia-tech.json` traz a ficha técnica da personagem (traços obrigatórios e paleta) em formato legível por máquina, para usar em ferramentas e automações.
 
+## Modelo 3D
+
+A pasta `10-modelo-3d/` traz o modelo 3D da BIA na **Prévia 5.5.3**: 295.400 triângulos, esqueleto de 101 ossos, 8 animações de corpo (Parada, Acenando, Explicando, Concordando, Comemorando, Dando de ombros, Andando e Correndo) e 11 expressões de rosto. A seção 16 do manual mostra as vistas, as animações e as regras de uso.
+
+| Arquivo | Para que serve | Tamanho |
+|---|---|---|
+| `bia-tech.blend` + `textures/` | Arquivo de trabalho do Blender 5.3 ou mais novo, com luzes de estúdio e câmera. Para renders, poses novas e animações | 82 MB + 32 MB |
+| `bia-tech.glb` | Modelo completo com esqueleto e animações, para outros programas 3D e motores de jogo | 24,7 MB |
+| `bia-tech-web.glb` | Versão leve para sites e apps, com texturas em WebP | 12,6 MB |
+
+- **Mantenha a pasta `textures/` ao lado do `bia-tech.blend`.** As texturas ficam fora do arquivo porque o GitHub não aceita arquivos acima de 100 MB. Se o Blender abrir o modelo cor-de-rosa, a pasta não está no lugar.
+- É uma prévia, para testes e peças internas. Peças externas continuam saindo das artes das pastas `01` a `08` até a versão final do modelo.
+- As regras da personagem valem em 3D: não espelhar, não recolorir, não mudar as proporções e não tirar os óculos, a mecha, o emblema ou o crachá.
+
+Mais detalhes em [`10-modelo-3d/LEIAME.md`](10-modelo-3d/LEIAME.md).
+
 ## Histórico de versões
 
 | Versão | Data | O que mudou |
 |---|---|---|
+| 2.1 | 13/11/2026 | Modelo 3D da BIA (Prévia 5.5.3) na pasta `10-modelo-3d/` e seção 16 no manual; anatomia corrigida para 3 dedos + polegar, como nas fichas oficiais |
 | 2.0 | 06/11/2026 | Arte dedicada para cada uso (lockups, fundos do Teams integrados à cena, stickers de chat), lockup vertical com a BIA debruçada, ícone de rosto para tamanhos pequenos, motion e interatividade no manual |
 | 1.0 | 06/11/2026 | Primeira versão do manual e do pacote |
 
