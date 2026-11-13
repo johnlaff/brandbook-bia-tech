@@ -41,4 +41,4 @@ Modelo 3D da BIA Tech com esqueleto, animações e expressões, feito a partir d
 
 ## Limites desta prévia
 
-O modelo ainda está em revisão contra as fichas. O que difere hoje: o topete é mais largo e mais em pé que a mecha do retrato, a divisa entre o pelo branco e o vermelho da bochecha é mais reta de perfil, as orelhas têm a borda mais grossa e a ponta mais arredondada, e as botas e as bolsas do cinto têm superfície lisa, sem o grão do couro. Enquanto for prévia, use o modelo em testes e peças internas.
+O modelo ainda está em revisão contra as fichas. O que difere hoje: o topete é mais largo e mais em pé que a mecha do retrato, a divisa entre o pelo branco e o vermelho da bochecha é mais reta de perfil, as orelhas têm a borda mais grossa e a ponta mais arredondada, as botas e as bolsas do cinto têm superfície lisa, sem o grão do couro, e a base da cauda, vista de costas, ainda aparece lisa, sem pelo. Enquanto for prévia, use o modelo em testes e peças internas.
