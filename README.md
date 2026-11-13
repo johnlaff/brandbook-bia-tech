@@ -2,7 +2,7 @@
 
 # Brandbook BIA Tech
 
-Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech** (Bradesco Inteligência Artificial). Aqui está tudo o que o time precisa para usar a personagem do jeito certo: regras, lockups, avatares, fundos do Teams, papéis de parede, stickers, as artes-base para gerar peças novas e o modelo 3D da personagem.
+Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech** (Bradesco Inteligência Artificial). Aqui está tudo o que o time precisa para usar a personagem do jeito certo: regras, lockups, avatares, fundos do Teams, papéis de parede, stickers, as artes-base para gerar peças novas, o modelo 3D da personagem e o visualizador que mostra esse modelo no navegador.
 
 `Versão 2.1` · `13/11/2026` · `Uso interno`
 
@@ -24,7 +24,7 @@ Manual de marca e pacote de arquivos da **BIA Tech**, a mascote da **b.ia tech**
 2. Abra `brandbook-html/index.html` com dois cliques. Ele abre no navegador, sem instalar nada.
 3. Use o botão de download de cada peça no próprio manual, ou pegue os arquivos direto nas pastas `01` a `10`.
 
-> Prefere o terminal? `git clone https://github.com/johnlaff/brandbook-bia-tech.git` funciona igual. O repositório tem cerca de 370 MB, então o ZIP costuma ser mais rápido.
+> Prefere o terminal? `git clone https://github.com/johnlaff/brandbook-bia-tech.git` funciona igual. Com o histórico, o repositório passa de 500 MB, então o ZIP costuma ser mais rápido.
 
 ## Como abrir o brandbook (HTML)
 
@@ -61,6 +61,7 @@ O manual é uma página única em `brandbook-html/index.html`. Ele mostra cada r
 | `08-personagem/` | Poses recortadas, fichas oficiais (turnaround, expressões, poses, detalhes, retrato), `bia-tech.json` e `prompt-mestre.txt` | PNG transparente, JSON, TXT |
 | `09-marca/` | Wordmark b.ia tech | SVG (positivo, negativo, branco) |
 | `10-modelo-3d/` | Modelo 3D da BIA (Prévia 5.5.4), com esqueleto, 8 animações e 11 expressões: arquivo do Blender com as texturas, GLB completo e GLB leve para web | BLEND, PNG, GLB |
+| `visualizador-3d/` | Página que mostra o modelo 3D no navegador: girar, aproximar, trocar a animação e a expressão do rosto | HTML, JS, WebP |
 
 ## Qual arquivo usar em cada situação
 
@@ -78,6 +79,7 @@ O manual é uma página única em `brandbook-html/index.html`. Ele mostra cada r
 | Só o nome da marca, sem a personagem | `09-marca/biatech-*.svg` |
 | Animar a BIA ou fazer um render novo em 3D | `10-modelo-3d/bia-tech.blend` (Blender 5.3 ou mais novo) |
 | A BIA em 3D num site, app ou motor de jogo | `10-modelo-3d/bia-tech-web.glb` (web) ou `10-modelo-3d/bia-tech.glb` |
+| Ver o modelo 3D girando, sem instalar nada | `visualizador-3d/index.html` |
 
 ## Regras essenciais
 
@@ -149,11 +151,15 @@ A pasta `10-modelo-3d/` traz o modelo 3D da BIA na **Prévia 5.5.4**: 295.400 tr
 
 Mais detalhes em [`10-modelo-3d/LEIAME.md`](10-modelo-3d/LEIAME.md).
 
+### Visualizador 3D
+
+Para ver o modelo sem abrir o Blender, abra `visualizador-3d/index.html` com dois cliques, depois de baixar o ZIP. A página mostra a BIA em 3D e deixa girar, aproximar, trocar a animação e a expressão do rosto e ligar o modo análise, com o modelo parado na pose neutra. Ela usa os arquivos da própria pasta, que precisam ficar juntos. Os controles estão em [`visualizador-3d/LEIAME.md`](visualizador-3d/LEIAME.md).
+
 ## Histórico de versões
 
 | Versão | Data | O que mudou |
 |---|---|---|
-| 2.1 | 13/11/2026 | Modelo 3D da BIA na pasta `10-modelo-3d/` e seção 16 no manual (entrou na Prévia 5.5.3 e passou no mesmo dia para a 5.5.4, com pelo na base da cauda); anatomia corrigida para 3 dedos + polegar, como nas fichas oficiais |
+| 2.1 | 13/11/2026 | Modelo 3D da BIA na pasta `10-modelo-3d/` e seção 16 no manual (entrou na Prévia 5.5.3 e passou no mesmo dia para a 5.5.4, com pelo na base da cauda); visualizador do modelo na pasta `visualizador-3d/`; anatomia corrigida para 3 dedos + polegar, como nas fichas oficiais |
 | 2.0 | 06/11/2026 | Arte dedicada para cada uso (lockups, fundos do Teams integrados à cena, stickers de chat), lockup vertical com a BIA debruçada, ícone de rosto para tamanhos pequenos, motion e interatividade no manual |
 | 1.0 | 06/11/2026 | Primeira versão do manual e do pacote |
 
