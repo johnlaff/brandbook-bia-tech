@@ -60,7 +60,7 @@ O manual é uma página única em `brandbook-html/index.html`. Ele mostra cada r
 | `07-stickers/` | 10 stickers de chat com legenda: Bom dia, Valeu, Top, Bora, Deploy feito, Entendi, Hmm, Ops, Reunião, Até | PNG e WebP 512x512 (< 100 KB) |
 | `08-personagem/` | Poses recortadas, fichas oficiais (turnaround, expressões, poses, detalhes, retrato), `bia-tech.json` e `prompt-mestre.txt` | PNG transparente, JSON, TXT |
 | `09-marca/` | Wordmark b.ia tech | SVG (positivo, negativo, branco) |
-| `10-modelo-3d/` | Modelo 3D da BIA (Prévia 5.5.3), com esqueleto, 8 animações e 11 expressões: arquivo do Blender com as texturas, GLB completo e GLB leve para web | BLEND, PNG, GLB |
+| `10-modelo-3d/` | Modelo 3D da BIA (Prévia 5.5.4), com esqueleto, 8 animações e 11 expressões: arquivo do Blender com as texturas, GLB completo e GLB leve para web | BLEND, PNG, GLB |
 
 ## Qual arquivo usar em cada situação
 
@@ -135,7 +135,7 @@ Toda arte nova parte das referências oficiais, para a personagem não sair do m
 
 ## Modelo 3D
 
-A pasta `10-modelo-3d/` traz o modelo 3D da BIA na **Prévia 5.5.3**: 295.400 triângulos, esqueleto de 101 ossos, 8 animações de corpo (Parada, Acenando, Explicando, Concordando, Comemorando, Dando de ombros, Andando e Correndo) e 11 expressões de rosto. A seção 16 do manual mostra as vistas, as animações e as regras de uso.
+A pasta `10-modelo-3d/` traz o modelo 3D da BIA na **Prévia 5.5.4**: 295.400 triângulos, esqueleto de 101 ossos, 8 animações de corpo (Parada, Acenando, Explicando, Concordando, Comemorando, Dando de ombros, Andando e Correndo) e 11 expressões de rosto. A seção 16 do manual mostra as vistas, as animações e as regras de uso.
 
 | Arquivo | Para que serve | Tamanho |
 |---|---|---|
@@ -153,7 +153,7 @@ Mais detalhes em [`10-modelo-3d/LEIAME.md`](10-modelo-3d/LEIAME.md).
 
 | Versão | Data | O que mudou |
 |---|---|---|
-| 2.1 | 13/11/2026 | Modelo 3D da BIA (Prévia 5.5.3) na pasta `10-modelo-3d/` e seção 16 no manual; anatomia corrigida para 3 dedos + polegar, como nas fichas oficiais |
+| 2.1 | 13/11/2026 | Modelo 3D da BIA na pasta `10-modelo-3d/` e seção 16 no manual (entrou na Prévia 5.5.3 e passou no mesmo dia para a 5.5.4, com pelo na base da cauda); anatomia corrigida para 3 dedos + polegar, como nas fichas oficiais |
 | 2.0 | 06/11/2026 | Arte dedicada para cada uso (lockups, fundos do Teams integrados à cena, stickers de chat), lockup vertical com a BIA debruçada, ícone de rosto para tamanhos pequenos, motion e interatividade no manual |
 | 1.0 | 06/11/2026 | Primeira versão do manual e do pacote |
 
